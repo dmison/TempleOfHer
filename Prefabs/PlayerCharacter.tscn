@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://d22vtyfpioa4y"]
+
+[ext_resource type="Script" uid="uid://mpsyb5avby1a" path="res://Scripts/FPSController.gd" id="1_ccx4r"]
+[ext_resource type="Script" uid="uid://d07x2l3segfil" path="res://Scripts/InteractionController.gd" id="2_67lfy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1cnwb"]
+height = 1.8615417
+
+[sub_resource type="SystemFont" id="SystemFont_67lfy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_84fvk"]
+font = SubResource("SystemFont_67lfy")
+font_size = 80
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PlayerCharacter" type="CharacterBody3D" unique_id=1115347998]
+script = ExtResource("1_ccx4r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=585516279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9828949, 0)
+shape = SubResource("CapsuleShape3D_1cnwb")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=550044372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7319531, -0.28379217)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=167404887]
+target_position = Vector3(0, 0, -1)
+collide_with_areas = true
+script = ExtResource("2_67lfy")
+
+[node name="InteractionPromptLabel" type="Label" parent="Camera3D" unique_id=613500879]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_84fvk")
+horizontal_alignment = 1
+vertical_alignment = 1

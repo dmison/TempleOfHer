@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cxhd5o48xodt0"]
+
+[ext_resource type="Material" uid="uid://ccig06dxu8th3" path="res://Materials/dark_texture_1.material" id="1_4h5u6"]
+[ext_resource type="PackedScene" uid="uid://d22vtyfpioa4y" path="res://Prefabs/PlayerCharacter.tscn" id="1_iac22"]
+[ext_resource type="PackedScene" uid="uid://c0uhki22h1p5a" path="res://Prefabs/lamp.tscn" id="3_pmced"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iac22"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_4h5u6"]
+sky_material = SubResource("ProceduralSkyMaterial_iac22")
+
+[sub_resource type="Environment" id="Environment_pmced"]
+background_mode = 2
+sky = SubResource("Sky_4h5u6")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D" unique_id=714249884]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1048282445]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=514610015]
+environment = SubResource("Environment_pmced")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=147043922]
+use_collision = true
+
+[node name="floor" type="CSGBox3D" parent="CSGCombiner3D" unique_id=586604330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.654251, 0, 1.3032227)
+size = Vector3(11.75, 0.25, 11)
+material = ExtResource("1_4h5u6")
+
+[node name="1meterwall" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1948497676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19852126, 0.625, -1.2121291)
+size = Vector3(3, 1, 0.3)
+material = ExtResource("1_4h5u6")
+
+[node name="2meterwall" type="CSGBox3D" parent="CSGCombiner3D" unique_id=288050849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20111096, 1.125, 2.552482)
+size = Vector3(3, 2, 0.3)
+material = ExtResource("1_4h5u6")
+
+[node name="ceiling" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1803324657]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.08404529, 2.625, 0.105338335)
+size = Vector3(7.25, 7.5, 0.3)
+material = ExtResource("1_4h5u6")
+
+[node name="table" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1434382537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.366164, 0.72919893, -0.29754508)
+height = 0.7432251
+material = ExtResource("1_4h5u6")
+
+[node name="PlayerCharacter" parent="." unique_id=1115347998 instance=ExtResource("1_iac22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5283165, 0.2111584, 0.742154)
+
+[node name="StaticBody3D" parent="." unique_id=1152542308 instance=ExtResource("3_pmced")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.359437, 1.4192281, -0.16652739)

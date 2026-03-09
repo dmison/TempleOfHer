@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c0uhki22h1p5a"]
+
+[ext_resource type="Script" uid="uid://bowt1p3b33y2g" path="res://Scripts/lamp_interact.gd" id="1_qsh1f"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_pmced"]
+radius = 0.3
+height = 0.3
+is_hemisphere = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmced"]
+transparency = 1
+cull_mode = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p50v3"]
+radius = 0.3753936
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1152542308]
+script = ExtResource("1_qsh1f")
+interact_prompt = "Turn on Light"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1531632418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3155378, -0.15797687)
+mesh = SubResource("SphereMesh_pmced")
+surface_material_override/0 = SubResource("StandardMaterial3D_pmced")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1549766261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0039720237, -0.27373934, -0.1503191)
+shape = SubResource("SphereShape3D_p50v3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2122427504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18317997, -0.09573817)
+visible = false

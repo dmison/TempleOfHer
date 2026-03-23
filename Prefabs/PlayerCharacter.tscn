@@ -3,10 +3,14 @@
 [ext_resource type="Script" uid="uid://mpsyb5avby1a" path="res://Scripts/FPSController.gd" id="1_ccx4r"]
 [ext_resource type="Script" uid="uid://d07x2l3segfil" path="res://Scripts/InteractionController.gd" id="2_67lfy"]
 
+[sub_resource type="FogMaterial" id="FogMaterial_67lfy"]
+density = -8.0
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1cnwb"]
 height = 1.8615417
 
 [sub_resource type="SystemFont" id="SystemFont_67lfy"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_84fvk"]
 font = SubResource("SystemFont_67lfy")
@@ -16,6 +20,12 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="PlayerCharacter" type="CharacterBody3D" unique_id=1115347998]
 script = ExtResource("1_ccx4r")
+
+[node name="FogVolume" type="FogVolume" parent="." unique_id=1597942171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0029296875, 1.1825562, 0.031982422)
+visible = false
+size = Vector3(5.0722656, 5.300171, 5.404785)
+material = SubResource("FogMaterial_67lfy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=585516279]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9828949, 0)

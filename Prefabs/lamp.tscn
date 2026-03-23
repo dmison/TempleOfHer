@@ -29,4 +29,11 @@ shape = SubResource("SphereShape3D_p50v3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2122427504]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18317997, -0.09573817)
-visible = false
+light_color = Color(0.89551103, 0.5963245, 0, 1)
+light_energy = 2.448
+light_indirect_energy = 2.158
+light_volumetric_fog_energy = 4.91
+distance_fade_enabled = true
+distance_fade_shadow = 30.0
+distance_fade_length = 40.0
+omni_range = 10.596

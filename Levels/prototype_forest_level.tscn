@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://3aa24n5xoq0l"]
+
+[ext_resource type="Material" uid="uid://ccig06dxu8th3" path="res://Materials/dark_texture_1.material" id="1_328ii"]
+[ext_resource type="PackedScene" uid="uid://d22vtyfpioa4y" path="res://Prefabs/PlayerCharacter.tscn" id="2_nto5g"]
+[ext_resource type="PackedScene" uid="uid://c0uhki22h1p5a" path="res://Prefabs/lamp.tscn" id="3_g7q5q"]
+[ext_resource type="PackedScene" uid="uid://c1f0vxov84yof" path="res://ruin/ruins.glb" id="4_pn7pm"]
+[ext_resource type="Shader" uid="uid://tfcx67iqa2mx" path="res://Levels/underwater.gdshader" id="5_pac4k"]
+[ext_resource type="PackedScene" uid="uid://d3gj4c86351fs" path="res://trees/trees.glb" id="6_8ahk5"]
+
+[sub_resource type="Sky" id="Sky_6sa31"]
+
+[sub_resource type="Environment" id="Environment_8hmpj"]
+background_mode = 2
+sky = SubResource("Sky_6sa31")
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.2
+tonemap_mode = 2
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1
+volumetric_fog_albedo = Color(9.62615e-08, 0.15053597, 0.24892697, 1)
+volumetric_fog_emission = Color(0, 0.22352941, 0.35686275, 1)
+volumetric_fog_emission_energy = 0.1
+volumetric_fog_anisotropy = 0.83
+volumetric_fog_length = 100.0
+
+[sub_resource type="FogMaterial" id="FogMaterial_pmced"]
+density = -8.0
+edge_fade = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmced"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+metallic_specular = 1.0
+roughness = 0.5
+roughness_texture_channel = 3
+clearcoat_enabled = true
+clearcoat_roughness = 0.27
+
+[sub_resource type="SphereMesh" id="SphereMesh_6sa31"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4o5f7"]
+transparency = 1
+depth_draw_mode = 1
+albedo_texture_force_srgb = true
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+proximity_fade_enabled = true
+proximity_fade_distance = 10.0
+distance_fade_min_distance = 30.0
+distance_fade_max_distance = 50.0
+stencil_flags = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4o5f7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8hmpj"]
+render_priority = 0
+shader = ExtResource("5_pac4k")
+shader_parameter/primary_color = Color(0, 0.40784314, 0.6039216, 1)
+shader_parameter/secondary_color = Color(0, 0.1254902, 0.20392157, 1)
+shader_parameter/roughness = 0.2
+shader_parameter/normalmap_a_strength = 0.5
+shader_parameter/normalmap_b_strength = 0.25
+shader_parameter/movement_direction = Vector2(0.2, 0.1)
+shader_parameter/movement_strength = 0.12
+shader_parameter/uv_scale = 1.0
+shader_parameter/depth_distance = 4.0
+shader_parameter/beers_law = 12.0
+shader_parameter/water_transparency = 0.05
+
+[node name="Node3D" type="Node3D" unique_id=714249884]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1729242685]
+environment = SubResource("Environment_8hmpj")
+
+[node name="FogVolume" type="FogVolume" parent="." unique_id=180751435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4638672, 0.75, 0.4584961)
+size = Vector3(17.25, 6, 16)
+material = SubResource("FogMaterial_pmced")
+
+[node name="building" type="CSGCombiner3D" parent="." unique_id=147043922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16428447, 0)
+material_override = ExtResource("1_328ii")
+use_collision = true
+
+[node name="glass" type="CSGBox3D" parent="building" unique_id=1588731052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5488892, 2, -7.1074367)
+gi_mode = 2
+size = Vector3(7.75, 2, 0.1)
+material = SubResource("StandardMaterial3D_pmced")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="building" unique_id=1130148615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7271118, 1.6854973, 0.4970703)
+size = Vector3(17.366577, 3.968628, 16.203125)
+
+[node name="window hole" type="CSGBox3D" parent="building" unique_id=682302743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6738892, 1.875, -6.8066273)
+operation = 2
+size = Vector3(7.75, 2, 2.75)
+material = ExtResource("1_328ii")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="building" unique_id=1163353809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9389801, 1.5379295, 0.44366455)
+operation = 2
+size = Vector3(15.95224, 3.3781433, 14.911743)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="building" unique_id=1059890943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.147864, 0.9925499, -2.046691)
+operation = 2
+size = Vector3(1.4493408, 2.9088745, 2.3364258)
+
+[node name="PlayerCharacter" parent="." unique_id=1115347998 instance=ExtResource("2_nto5g")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.7783165, 3.7111583, -33.257847)
+
+[node name="lamp" parent="." unique_id=1152542308 instance=ExtResource("3_g7q5q")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -0.5135326, 2.8430817, -0.4358297)
+interact_prompt = "Turn off Light"
+
+[node name="lamp3" parent="." unique_id=1072386244 instance=ExtResource("3_g7q5q")]
+transform = Transform3D(-4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, 3.821371e-15, 0, 8.742278e-08, -1, 8.486467, 3.0930815, -6.9358296)
+interact_prompt = "Turn off Light"
+
+[node name="lamp4" parent="." unique_id=1042423376 instance=ExtResource("3_g7q5q")]
+transform = Transform3D(-8.881784e-16, 1.1920929e-07, -1, 1, 4.371139e-08, 4.211084e-15, 4.3711385e-08, -1, -1.1920929e-07, 4.4864674, 3.0930815, -7.935829)
+interact_prompt = "Turn off Light"
+
+[node name="lamp2" parent="." unique_id=159642418 instance=ExtResource("3_g7q5q")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -4.7635326, 6.5930815, -31.68583)
+visible = false
+interact_prompt = "Turn off Light"
+
+[node name="ruins" parent="." unique_id=1615062780 instance=ExtResource("4_pn7pm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.756741, 0.119003296, -36.055542)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=654516064]
+transform = Transform3D(1, 0, 0, 0, -0.014226726, 0.99989885, 0, -0.9998988, -0.014226727, -10.243203, 3.8895197, -31.951305)
+mesh = SubResource("SphereMesh_6sa31")
+surface_material_override/0 = SubResource("StandardMaterial3D_4o5f7")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="MeshInstance3D" unique_id=330332637]
+light_energy = 2.417
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 2.0
+light_size = 1.0
+shadow_enabled = true
+shadow_blur = 0.5
+distance_fade_enabled = true
+spot_range = 6.887
+spot_attenuation = 1.18
+spot_angle = 62.48
+spot_angle_attenuation = 0.11662925
+
+[node name="lights" type="Node3D" parent="." unique_id=1872994658]
+transform = Transform3D(1, 0, 0, 0, -0.014226726, 0.99989885, 0, -0.9998988, -0.01422673, -6.238039, 16.054049, -26.419107)
+visible = false
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="lights" unique_id=269366241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5001373, 12.992053, -0.92914915)
+light_energy = 11.733
+light_size = 1.0
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 36.349
+spot_angle = 32.88
+spot_angle_attenuation = 1e-05
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="lights" unique_id=1019447214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.180998, 7.098635, -1.5986567)
+light_energy = 11.733
+light_size = 1.0
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 36.349
+spot_angle = 32.88
+spot_angle_attenuation = 1e-05
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="lights" unique_id=972546167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6038074, 3.5021994, 0.8005886)
+light_energy = 11.733
+light_size = 1.0
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 36.349
+spot_angle = 32.88
+spot_angle_attenuation = 1e-05
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="lights" unique_id=1707132283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1260085, -0.18808553, 0.49596262)
+light_energy = 11.733
+light_size = 1.0
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 36.349
+spot_angle = 32.88
+spot_angle_attenuation = 1e-05
+
+[node name="terrain" type="CSGCombiner3D" parent="." unique_id=93021276]
+use_collision = true
+
+[node name="oceanfloor" type="CSGBox3D" parent="terrain" unique_id=657734236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.279251, -0.17953408, -12.071777)
+size = Vector3(307.5, 0.25, 346.75)
+material = ExtResource("1_328ii")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="terrain" unique_id=1124972328]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -5.0404697e-07, -26.990124)
+height = 38.5625
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2001864539]
+transform = Transform3D(7.4051976, 0, 0, 0, -3.4016033e-08, -3.9283729, 0, 0.7781961, -1.7171463e-07, -12.526, 3.79, -30.237999)
+visible = false
+mesh = SubResource("PlaneMesh_4o5f7")
+surface_material_override/0 = SubResource("ShaderMaterial_8hmpj")
+
+[node name="trees" parent="." unique_id=1857448704 instance=ExtResource("6_8ahk5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4828243, 1.4656783, -15.778509)

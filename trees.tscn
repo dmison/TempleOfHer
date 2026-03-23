@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cgr5rbhnn55jk"]
+
+[ext_resource type="PackedScene" uid="uid://d3gj4c86351fs" path="res://trees/trees.glb" id="1_slfv4"]
+[ext_resource type="ArrayMesh" uid="uid://bvyr4y8urtu3l" path="res://trees/trees_Plane.res" id="2_6hpk1"]
+
+[node name="trees" unique_id=1857448704 instance=ExtResource("1_slfv4")]
+
+[node name="Plane" parent="." index="0" unique_id=611484663]
+visible = false
+
+[node name="TreesPlane" type="MeshInstance3D" parent="." index="1" unique_id=2125835344]
+mesh = ExtResource("2_6hpk1")

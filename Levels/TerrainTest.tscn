@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://jrnaxqu8tllm"]
+
+[ext_resource type="Environment" uid="uid://cdu072th5dm1j" path="res://world_environment.tres" id="1_5i24h"]
+[ext_resource type="Texture2D" uid="uid://b006a1dinhko1" path="res://Textures/grass.png" id="1_gw5jk"]
+[ext_resource type="Texture2D" uid="uid://2ckk6v6adv56" path="res://Textures/grass-normal.png" id="2_6kjh8"]
+[ext_resource type="PackedScene" uid="uid://d22vtyfpioa4y" path="res://Prefabs/PlayerCharacter.tscn" id="3_6kjh8"]
+[ext_resource type="Material" uid="uid://ccig06dxu8th3" path="res://Materials/dark_texture_1.material" id="4_xamvr"]
+[ext_resource type="PackedScene" uid="uid://c0uhki22h1p5a" path="res://Prefabs/lamp.tscn" id="6_5i24h"]
+
+[sub_resource type="Gradient" id="Gradient_6kjh8"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xamvr"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dp5uj"]
+noise = SubResource("FastNoiseLite_xamvr")
+color_ramp = SubResource("Gradient_6kjh8")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_dp5uj"]
+_shader_parameters = {
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.5,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": false,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_dp5uj"),
+&"projection_threshold": 0.8
+}
+world_background = 0
+texture_filtering = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5i24h"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_wn2b3"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_5i24h")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_h6sfi"]
+name = "grass"
+albedo_texture = ExtResource("1_gw5jk")
+normal_texture = ExtResource("2_6kjh8")
+normal_depth = 0.1
+detiling_rotation = 0.25
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_6lj5v"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_wn2b3")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_h6sfi")])
+
+[node name="TerrainTest" type="Node3D" unique_id=1246758686]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1936993181]
+environment = ExtResource("1_5i24h")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1627528129]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(1.8289685e-06, 0.46956402, 0.46996385, 1)
+light_energy = 9.0
+light_indirect_energy = 1.1
+light_angular_distance = 0.5
+shadow_enabled = true
+
+[node name="PlayerCharacter" parent="." unique_id=1115347998 instance=ExtResource("3_6kjh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.25, 9.25, -195)
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=1303566392]
+data_directory = "res://TerrainData"
+material = SubResource("Terrain3DMaterial_dp5uj")
+assets = SubResource("Terrain3DAssets_6lj5v")
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=366312045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.5, 0, -196.25)
+material_override = ExtResource("4_xamvr")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=469017339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.75, 0, 5.25)
+size = Vector3(50, 1, 50)
+
+[node name="StaticBody3D" parent="." unique_id=1152542308 instance=ExtResource("6_5i24h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.03607, 1.5448971, -194.73524)

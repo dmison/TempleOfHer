@@ -1,0 +1,31 @@
+[gd_resource type="Environment" format=3 uid="uid://cdu072th5dm1j"]
+
+[sub_resource type="Sky" id="Sky_dysc7"]
+
+[resource]
+background_mode = 2
+background_color = Color(0.7882353, 0.5019608, 0.6431373, 0)
+sky = SubResource("Sky_dysc7")
+ambient_light_source = 3
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssao_radius = 6.08
+ssao_intensity = 16.0
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_energy = 0.0
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0, 0.29289842, 0.2907969, 1)
+fog_density = 0.1
+fog_sky_affect = 0.452
+fog_height_density = 5.0
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(8.1822276e-07, 0.28199837, 0.35637388, 1)
+volumetric_fog_emission = Color(0, 0.28235295, 0.35686275, 1)
+volumetric_fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_brightness = 0.67
+adjustment_contrast = 1.25

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Temple Of Her"
-run/main_scene="uid://cxhd5o48xodt0"
+run/main_scene="uid://jrnaxqu8tllm"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.svg"
 

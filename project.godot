@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Temple Of Her"
-run/main_scene="uid://jrnaxqu8tllm"
+run/main_scene="uid://biru17tw2u83g"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.svg"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 

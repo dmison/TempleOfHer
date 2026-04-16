@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c0uhki22h1p5a" path="res://Prefabs/lamp.tscn" id="3_pmced"]
 [ext_resource type="Shader" uid="uid://tfcx67iqa2mx" path="res://Levels/underwater.gdshader" id="5_6sa31"]
 [ext_resource type="PackedScene" uid="uid://bxnjcer7mc0km" path="res://trees/trees.glb" id="6_4o5f7"]
-[ext_resource type="Texture2D" uid="uid://26q0htw6358n" path="res://Textures/kenney_prototype-textures/PNG/Orange/texture_01.png" id="8_kkgl6"]
-[ext_resource type="Texture2D" uid="uid://hybupw0s1pb2" path="res://Textures/kenney_prototype-textures/PNG/Dark/texture_01.png" id="9_wgg18"]
-[ext_resource type="Texture2D" uid="uid://cckwdiybknybw" path="res://Textures/kenney_prototype-textures/PNG/Green/texture_01.png" id="10_mndwx"]
+[ext_resource type="Texture2D" path="res://Textures/kenney_prototype-textures/PNG/Orange/texture_01.png" id="8_kkgl6"]
+[ext_resource type="Texture2D" path="res://Textures/kenney_prototype-textures/PNG/Dark/texture_01.png" id="9_wgg18"]
+[ext_resource type="Texture2D" path="res://Textures/kenney_prototype-textures/PNG/Green/texture_01.png" id="10_mndwx"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_op5fs"]
 panorama = ExtResource("1_8hmpj")

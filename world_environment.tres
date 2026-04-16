@@ -1,6 +1,12 @@
 [gd_resource type="Environment" format=3 uid="uid://cdu072th5dm1j"]
 
+[ext_resource type="Texture2D" uid="uid://c1ghl7c44te2a" path="res://AllSkyFree_Sky_OvercastLow_Equirect.png" id="1_o0yxx"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_28hol"]
+panorama = ExtResource("1_o0yxx")
+
 [sub_resource type="Sky" id="Sky_dysc7"]
+sky_material = SubResource("PanoramaSkyMaterial_28hol")
 
 [resource]
 background_mode = 2
@@ -18,13 +24,13 @@ sdfgi_use_occlusion = true
 sdfgi_energy = 0.0
 glow_enabled = true
 fog_enabled = true
-fog_light_color = Color(0, 0.29289842, 0.2907969, 1)
-fog_density = 0.1
-fog_sky_affect = 0.452
-fog_height_density = 5.0
+fog_light_color = Color(2.2862106e-07, 0.20739275, 0.20444539, 1)
+fog_light_energy = 1.8
+fog_sky_affect = 0.062
 volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(8.1822276e-07, 0.28199837, 0.35637388, 1)
-volumetric_fog_emission = Color(0, 0.28235295, 0.35686275, 1)
+volumetric_fog_density = 0.0088
+volumetric_fog_albedo = Color(5.4147097e-07, 0.25537652, 0.2893531, 1)
+volumetric_fog_anisotropy = 0.9
 volumetric_fog_sky_affect = 0.0
 adjustment_enabled = true
 adjustment_brightness = 0.67

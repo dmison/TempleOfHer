@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bb4bs0wpoh8o"]
+
+[ext_resource type="ArrayMesh" uid="uid://dv2bk121c4mmt" path="res://TaskB/Monolith/Plane_004.res" id="1_juos8"]
+[ext_resource type="Material" uid="uid://ck4a3o7pipxqu" path="res://TaskB/Monolith/new_standard_material_3d.tres" id="2_4mqx7"]
+
+[node name="Monolith" type="Node3D" unique_id=1187679992]
+
+[node name="Plane004" type="MeshInstance3D" parent="." unique_id=1922667453]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = ExtResource("1_juos8")
+surface_material_override/0 = ExtResource("2_4mqx7")

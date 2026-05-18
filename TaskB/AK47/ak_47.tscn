@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://d4jps25u5c7wp"]
+
+[ext_resource type="PackedScene" uid="uid://dtlxde4c7rkqn" path="res://TaskB/AK47/AK47_LP.fbx" id="1_jsoxm"]
+[ext_resource type="Material" uid="uid://uo3lti3pln1c" path="res://TaskB/AK47/new_standard_material_3d.tres" id="2_ugjjr"]
+
+[node name="AK47_LP" unique_id=1512152044 instance=ExtResource("1_jsoxm")]
+
+[node name="BARREL_LP_001" parent="." index="0" unique_id=685731602]
+transform = Transform3D(150, 0, 0, 0, -6.5567083e-06, 150, 0, -150, -6.5567083e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ugjjr")
+
+[node name="BODY_LP_001" parent="." index="1" unique_id=836890093]
+transform = Transform3D(150, 0, 0, 0, -6.5567083e-06, 150, 0, -150, -6.5567083e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ugjjr")
+
+[node name="CLEANINGROD_LP_001" parent="." index="2" unique_id=22062078]
+transform = Transform3D(150, 0, 0, 0, -6.5567083e-06, 150, 0, -150, -6.5567083e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ugjjr")
+
+[node name="GAS THING_LP_001" parent="." index="3" unique_id=1284847478]
+transform = Transform3D(150, 0, 0, 0, -6.5567083e-06, 150, 0, -150, -6.5567083e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ugjjr")
+
+[node name="IRONSIGHTS_LP_001" parent="." index="4" unique_id=773401674]
+transform = Transform3D(150, 0, 0, 0, -6.5567083e-06, 150, 0, -150, -6.5567083e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ugjjr")
+
+[node name="MAGAZINE_LP_001" parent="." index="5" unique_id=101430922]
+transform = Transform3D(150, 0, 0, 0, -6.5567083e-06, 150, 0, -150, -6.5567083e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ugjjr")
+
+[node name="PULLBOLT_LP_001" parent="." index="6" unique_id=1992095431]
+transform = Transform3D(150, 0, 0, 0, -6.5567083e-06, 150, 0, -150, -6.5567083e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ugjjr")
+
+[node name="SIGHT-BLOCK_LP_001" parent="." index="7" unique_id=2091641635]
+transform = Transform3D(150, 0, 0, 0, -6.5567083e-06, 150, 0, -150, -6.5567083e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ugjjr")
+
+[node name="SWITCH_001" parent="." index="8" unique_id=1651231207]
+transform = Transform3D(150, 0, 0, 0, -6.5567083e-06, 150, 0, -150, -6.5567083e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ugjjr")
+
+[node name="TRIGGET_LP_002" parent="." index="9" unique_id=1602754497]
+transform = Transform3D(150, 0, 0, 0, -6.5567083e-06, 150, 0, -150, -6.5567083e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ugjjr")
+
+[node name="WOOD_LP_001" parent="." index="10" unique_id=515480465]
+transform = Transform3D(150, 0, 0, 0, -6.5567083e-06, 150, 0, -150, -6.5567083e-06, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_ugjjr")

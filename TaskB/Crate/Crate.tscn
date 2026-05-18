@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://rtuwjg0axuos"]
+
+[ext_resource type="PackedScene" uid="uid://bx73iq4amja43" path="res://TaskB/Crate/Crate_LP.fbx" id="1_0ypnj"]
+[ext_resource type="Material" uid="uid://c7b7sciya4hy2" path="res://TaskB/Crate/new_standard_material_3d.tres" id="2_3ld01"]
+
+[node name="Crate_LP" unique_id=1301539002 instance=ExtResource("1_0ypnj")]
+
+[node name="CRATE_LP" parent="." index="0" unique_id=1055156684]
+surface_material_override/0 = ExtResource("2_3ld01")
+
+[node name="Rope1_LP" parent="." index="1" unique_id=1059476336]
+surface_material_override/0 = ExtResource("2_3ld01")
+
+[node name="Rope2_LP" parent="." index="2" unique_id=2029140182]
+surface_material_override/0 = ExtResource("2_3ld01")

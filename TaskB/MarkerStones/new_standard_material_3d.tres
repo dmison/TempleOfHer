@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cmsg2mdxfhrak"]
+
+[ext_resource type="Texture2D" uid="uid://rgag5hv00ytm" path="res://TaskB/MarkerStones/DefaultMaterial_BaseColor.png" id="1_7ufs1"]
+[ext_resource type="Texture2D" uid="uid://geng2s6ryck2" path="res://TaskB/MarkerStones/DefaultMaterial_Metallic.png" id="2_mjlg5"]
+[ext_resource type="Texture2D" uid="uid://tha8btanlgcf" path="res://TaskB/MarkerStones/DefaultMaterial_Normal.png" id="3_pqlkh"]
+[ext_resource type="Texture2D" uid="uid://cc5ifsdb2b3bo" path="res://TaskB/MarkerStones/DefaultMaterial_Roughness.png" id="4_j31n1"]
+
+[resource]
+albedo_texture = ExtResource("1_7ufs1")
+metallic = 1.0
+metallic_texture = ExtResource("2_mjlg5")
+roughness_texture = ExtResource("4_j31n1")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("3_pqlkh")

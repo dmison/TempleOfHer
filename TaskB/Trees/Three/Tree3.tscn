@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bnq4rwsvpdvox"]
+
+[ext_resource type="ArrayMesh" uid="uid://cc1qaaxbul8bl" path="res://TaskB/Trees/Three/Cube_002.res" id="1_fvq4o"]
+[ext_resource type="Material" uid="uid://5wehrx6u6753" path="res://TaskB/Trees/Three/new_standard_material_3d.tres" id="2_ognl3"]
+
+[node name="Three3" type="Node3D" unique_id=238800372]
+
+[node name="Cube002" type="MeshInstance3D" parent="." unique_id=189484100]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = ExtResource("1_fvq4o")
+surface_material_override/0 = ExtResource("2_ognl3")

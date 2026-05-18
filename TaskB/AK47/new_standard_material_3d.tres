@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://uo3lti3pln1c"]
+
+[ext_resource type="Texture2D" uid="uid://lc6arqf1qywx" path="res://TaskB/AK47/DefaultMaterial_BaseColor.png" id="1_x1u0t"]
+[ext_resource type="Texture2D" uid="uid://ds883l8ccvmuu" path="res://TaskB/AK47/DefaultMaterial_Displacement.png" id="2_v4yl5"]
+[ext_resource type="Texture2D" uid="uid://xhm8acr2p3on" path="res://TaskB/AK47/DefaultMaterial_Metallic.png" id="3_olpt2"]
+[ext_resource type="Texture2D" uid="uid://41fl5b7nkweg" path="res://TaskB/AK47/DefaultMaterial_Normal.png" id="4_y7oci"]
+[ext_resource type="Texture2D" uid="uid://ccvm2obfalbp3" path="res://TaskB/AK47/DefaultMaterial_Roughness.png" id="5_cvqv0"]
+
+[resource]
+albedo_texture = ExtResource("1_x1u0t")
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = ExtResource("3_olpt2")
+metallic_texture_channel = 4
+roughness_texture = ExtResource("5_cvqv0")
+roughness_texture_channel = 4
+normal_texture = ExtResource("4_y7oci")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_v4yl5")

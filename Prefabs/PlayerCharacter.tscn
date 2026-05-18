@@ -7,7 +7,8 @@
 density = -8.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1cnwb"]
-height = 1.8615417
+radius = 0.22070313
+height = 1.9063568
 
 [sub_resource type="SystemFont" id="SystemFont_67lfy"]
 subpixel_positioning = 0
@@ -28,7 +29,7 @@ size = Vector3(5.0722656, 5.300171, 5.404785)
 material = SubResource("FogMaterial_67lfy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=585516279]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9828949, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96048737, 0)
 shape = SubResource("CapsuleShape3D_1cnwb")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=550044372]

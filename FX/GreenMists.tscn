@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://ci6bopsqyn8lt"]
+
+[ext_resource type="RibbonTrailMesh" uid="uid://c1sbueq14qvtp" path="res://FX/new_sphere_mesh_2.tres" id="1_l02vo"]
+
+[sub_resource type="Curve" id="Curve_ugj7p"]
+_data = [Vector2(0, 0), 0.0, -0.12524751, 0, 0, Vector2(0.24463521, 0), 0.0, 0.0, 0, 0, Vector2(0.35193133, 0.8809352), 0.0, 0.0, 0, 0, Vector2(0.80114454, 0), -0.12562959, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_p1geq"]
+curve = SubResource("Curve_ugj7p")
+
+[sub_resource type="Curve" id="Curve_p1geq"]
+_data = [Vector2(0, 0.98120034), 0.0, -0.513012, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7yvu3"]
+curve = SubResource("Curve_p1geq")
+
+[sub_resource type="CurveTexture" id="CurveTexture_ugj7p"]
+
+[sub_resource type="Curve" id="Curve_67rej"]
+_data = [Vector2(0.01106501, 0), 0.0, 0.17527843, 0, 0, Vector2(0.34993088, 0.45341253), 0.0, 0.0, 0, 0, Vector2(0.99446756, 0.22175634), 1.0723498, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kl8mm"]
+curve = SubResource("Curve_67rej")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xvs3x"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 0.3
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+gravity = Vector3(0, 0.4, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_ugj7p")
+alpha_curve = SubResource("CurveTexture_p1geq")
+emission_curve = SubResource("CurveTexture_7yvu3")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.99999994
+turbulence_enabled = true
+turbulence_noise_strength = 0.5
+turbulence_noise_scale = 0.5
+turbulence_noise_speed_random = 0.0
+turbulence_influence_min = 0.018000001
+turbulence_influence_max = 0.018000001
+turbulence_influence_over_life = SubResource("CurveTexture_kl8mm")
+
+[node name="GreenMists" type="Node3D" unique_id=866231670]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=925966242]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
+lifetime = 8.0
+explosiveness = 0.3
+randomness = 0.3
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_xvs3x")
+draw_pass_1 = ExtResource("1_l02vo")

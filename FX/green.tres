@@ -1,0 +1,30 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cwuq110u24k84"]
+
+[sub_resource type="Curve" id="Curve_m1ao7"]
+_data = [Vector2(0.0933522, 0), 0.0, 0.0, 0, 0, Vector2(0.32248938, 0.27209908), 1.4169922, 1.4169922, 0, 0, Vector2(0.4879774, 0.5106028), -0.052981474, -0.052981474, 0, 0, Vector2(0.562942, 0.23647839), -1.9073304, -1.9073304, 0, 0, Vector2(0.9321075, 0.0026209354), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.05628591, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_ipr3n"]
+curve = SubResource("Curve_m1ao7")
+
+[resource]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 1, 0, 0.45600003)
+emission_enabled = true
+emission = Color(0, 4.4608884, 0, 1)
+emission_energy_multiplier = 0.28
+clearcoat_roughness = 0.0
+detail_blend_mode = 3
+detail_albedo = SubResource("CurveTexture_ipr3n")
+disable_receive_shadows = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+point_size = 12.5
+use_particle_trails = true
+distance_fade_max_distance = 5.0
+stencil_flags = 2
+stencil_outline_thickness = 0.19

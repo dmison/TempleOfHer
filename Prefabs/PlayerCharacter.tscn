@@ -34,6 +34,8 @@ shape = SubResource("CapsuleShape3D_1cnwb")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=550044372]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7319531, -0.28379217)
+fov = 60.0
+far = 150.0
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=167404887]
 target_position = Vector3(0, 0, -1)

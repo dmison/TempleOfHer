@@ -20,12 +20,12 @@ script = ExtResource("1_qsh1f")
 interact_prompt = "Turn on Light"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1531632418]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3155378, -0.15797687)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.316, 0)
 mesh = SubResource("SphereMesh_pmced")
 surface_material_override/0 = SubResource("StandardMaterial3D_pmced")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1549766261]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0039720237, -0.27373934, -0.1503191)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004, -0.274, 0)
 shape = SubResource("SphereShape3D_p50v3")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2122427504]

@@ -1,17 +1,17 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://ck4a3o7pipxqu"]
 
-[ext_resource type="Texture2D" uid="uid://4wygepmjbigv" path="res://TaskB/Monolith/DefaultMaterial_Base_color.png" id="1_5ghcu"]
-[ext_resource type="Texture2D" uid="uid://dq6q7stgc0slk" path="res://TaskB/Monolith/DefaultMaterial_Mixed_AO.png" id="2_hpnf0"]
-[ext_resource type="Texture2D" uid="uid://d011gn6mwbgp6" path="res://TaskB/Monolith/DefaultMaterial_Metallic.png" id="3_wqpm1"]
-[ext_resource type="Texture2D" uid="uid://mclenl0ace4t" path="res://TaskB/Monolith/DefaultMaterial_Normal_DirectX.png" id="4_ishp0"]
-[ext_resource type="Texture2D" uid="uid://cba74fx41hdrh" path="res://TaskB/Monolith/DefaultMaterial_Roughness.png" id="5_60dbe"]
+[ext_resource type="Texture2D" uid="uid://cnnu61b43qpbr" path="res://TaskB/Monolith/Material_baseColor.png" id="1_8hxi7"]
+[ext_resource type="Texture2D" uid="uid://c0nrt8nohasok" path="res://TaskB/Monolith/Material_occlusionRoughnessMetallic.png" id="2_8olet"]
+[ext_resource type="Texture2D" uid="uid://8teo7kchq3se" path="res://TaskB/Monolith/Material_normal.png" id="3_5ghcu"]
 
 [resource]
-albedo_texture = ExtResource("1_5ghcu")
+albedo_texture = ExtResource("1_8hxi7")
 metallic = 1.0
-metallic_texture = ExtResource("3_wqpm1")
-roughness_texture = ExtResource("5_60dbe")
+metallic_texture = ExtResource("2_8olet")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_8olet")
+roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("4_ishp0")
+normal_texture = ExtResource("3_5ghcu")
 ao_enabled = true
-ao_texture = ExtResource("2_hpnf0")
+ao_texture = ExtResource("2_8olet")

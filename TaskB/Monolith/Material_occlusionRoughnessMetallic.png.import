@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4wygepmjbigv"
-path.s3tc="res://.godot/imported/DefaultMaterial_Base_color.png-21dbf38864135c0a0991533786b763f3.s3tc.ctex"
+uid="uid://c0nrt8nohasok"
+path.s3tc="res://.godot/imported/Material_occlusionRoughnessMetallic.png-acf75f89fdb918b5e90d7fdb40c54b4d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://TaskB/Monolith/DefaultMaterial_Base_color.png"
-dest_files=["res://.godot/imported/DefaultMaterial_Base_color.png-21dbf38864135c0a0991533786b763f3.s3tc.ctex"]
+source_file="res://TaskB/Monolith/Material_occlusionRoughnessMetallic.png"
+dest_files=["res://.godot/imported/Material_occlusionRoughnessMetallic.png-acf75f89fdb918b5e90d7fdb40c54b4d.s3tc.ctex"]
 
 [params]
 

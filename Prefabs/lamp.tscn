@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0uhki22h1p5a"]
 
 [ext_resource type="Script" uid="uid://bowt1p3b33y2g" path="res://Scripts/lamp_interact.gd" id="1_qsh1f"]
+[ext_resource type="PackedScene" uid="uid://i47vebt07w1t" path="res://FX/insects/insects.tscn" id="2_s67b3"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_pmced"]
 radius = 0.3
@@ -38,3 +39,5 @@ distance_fade_enabled = true
 distance_fade_shadow = 30.0
 distance_fade_length = 40.0
 omni_attenuation = 0.3
+
+[node name="Insects" parent="." unique_id=1935462078 instance=ExtResource("2_s67b3")]

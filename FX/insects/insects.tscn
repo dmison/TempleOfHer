@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://i47vebt07w1t"]
+
+[ext_resource type="Material" uid="uid://ypjvfikb4whn" path="res://FX/insects/insects_particle_material.tres" id="1_5k7xy"]
+[ext_resource type="Material" uid="uid://iv33u8fr7o0g" path="res://FX/insects/glowing_material.tres" id="2_whh4i"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_agcjm"]
+material = ExtResource("2_whh4i")
+size = Vector2(0.05, 0.05)
+
+[node name="Insects" type="Node3D" unique_id=1935462078]
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="." unique_id=1214257812]
+strength = 2.0
+attenuation = 5.6569133
+radius = 5.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=814564132]
+amount = 5
+lifetime = 10.0
+explosiveness = 0.3
+randomness = 0.3
+collision_base_size = 0.1
+visibility_aabb = AABB(-1, -1, -1, 2, 2, 2)
+process_material = ExtResource("1_5k7xy")
+draw_pass_1 = SubResource("QuadMesh_agcjm")

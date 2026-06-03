@@ -1,0 +1,43 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://iv33u8fr7o0g"]
+
+[sub_resource type="Gradient" id="Gradient_e3cm4"]
+offsets = PackedFloat32Array(0.056748465, 0.2208589, 0.6809816)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 0.69411767, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ugp5g"]
+gradient = SubResource("Gradient_e3cm4")
+fill = 1
+fill_from = Vector2(0.5277778, 0.47008547)
+
+[sub_resource type="Gradient" id="Gradient_0s48h"]
+offsets = PackedFloat32Array(0, 0.30061352, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.07515337, 0.07515337, 0.07515337, 0.92484665, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_240ax"]
+gradient = SubResource("Gradient_0s48h")
+fill = 1
+fill_from = Vector2(0.491453, 0.47863248)
+
+[sub_resource type="Gradient" id="Gradient_4aeea"]
+colors = PackedColorArray(1, 1, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8hu3h"]
+gradient = SubResource("Gradient_4aeea")
+fill = 1
+fill_from = Vector2(0.41239315, 0.39102563)
+fill_to = Vector2(0.6688034, 0.66239315)
+
+[resource]
+transparency = 1
+albedo_color = Color(0.72283727, 3.236793e-06, 6.738305e-07, 1)
+albedo_texture = SubResource("GradientTexture2D_ugp5g")
+emission_enabled = true
+emission = Color(0.7841174, 1.2754649e-06, 2.8878452e-07, 1)
+emission_texture = SubResource("GradientTexture2D_8hu3h")
+detail_mask = SubResource("GradientTexture2D_240ax")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+proximity_fade_distance = 0.1

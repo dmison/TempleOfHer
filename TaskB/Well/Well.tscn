@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dc6ks6eko050"]
 
-[ext_resource type="ArrayMesh" uid="uid://c1fp0kwtqriro" path="res://TaskB/Well/Plane_016.res" id="1_bybo1"]
+[ext_resource type="ArrayMesh" uid="uid://dwdi32to8lhqs" path="res://TaskB/Well/Plane_016.res" id="1_bybo1"]
 [ext_resource type="Material" uid="uid://c8qtygi00lec7" path="res://TaskB/Well/new_standard_material_3d.tres" id="2_tfxxh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tfxxh"]
-height = 0.28259277
+height = 0.27264404
 radius = 4.2856445
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2gdor"]
@@ -21,7 +21,7 @@ mesh = ExtResource("1_bybo1")
 surface_material_override/0 = ExtResource("2_tfxxh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=489741469]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08938086, -3.1731023e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.084406495, -3.1731023e-08)
 shape = SubResource("CylinderShape3D_tfxxh")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1635342053]

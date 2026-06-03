@@ -16,7 +16,12 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_7yvu3"]
 curve = SubResource("Curve_p1geq")
 
+[sub_resource type="Curve" id="Curve_l02vo"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="CurveTexture" id="CurveTexture_ugj7p"]
+curve = SubResource("Curve_l02vo")
 
 [sub_resource type="Curve" id="Curve_67rej"]
 _data = [Vector2(0.01106501, 0), 0.0, 0.17527843, 0, 0, Vector2(0.34993088, 0.45341253), 0.0, 0.0, 0, 0, Vector2(0.99446756, 0.22175634), 1.0723498, 0.0, 0, 0]
@@ -57,6 +62,7 @@ lifetime = 8.0
 explosiveness = 0.3
 randomness = 0.3
 fixed_fps = 60
+visibility_aabb = AABB(-1.3114761, -9.122185, -0.5906605, 1.874042, 9.174147, 2.2429204)
 trail_enabled = true
 trail_lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_xvs3x")

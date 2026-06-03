@@ -9,3 +9,12 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 [node name="Well" parent="." unique_id=1687461691 instance=ExtResource("1_b12g4")]
 
 [node name="GreenMists" parent="." unique_id=866231670 instance=ExtResource("2_xo3nl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7722023, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1386481555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19100279, 0)
+light_color = Color(7.893444e-06, 0.7300159, 7.70092e-07, 1)
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 1.033
+omni_attenuation = 3.344

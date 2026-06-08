@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ddqxi8ajs1lt0"]
+
+[ext_resource type="PackedScene" uid="uid://hhyt0at5yspm" path="res://WeirdLantern/WeirdLantern.fbx" id="1_3b5as"]
+[ext_resource type="Material" uid="uid://cpudw30wxm3ow" path="res://WeirdLantern/WeirdLantern_Material.tres" id="2_ekx8i"]
+
+[node name="WeirdLantern" unique_id=1507915112 instance=ExtResource("1_3b5as")]
+
+[node name="Cylinder_002" parent="." index="0" unique_id=103938636]
+layers = 2
+surface_material_override/0 = ExtResource("2_ekx8i")

@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://c0uhki22h1p5a"]
+[gd_scene format=3 uid="uid://b64uwvh6mnutf"]
 
-[ext_resource type="Script" uid="uid://bowt1p3b33y2g" path="res://Scripts/lamp_interact.gd" id="1_qsh1f"]
-[ext_resource type="PackedScene" uid="uid://i47vebt07w1t" path="res://FX/insects/insects.tscn" id="2_s67b3"]
-[ext_resource type="PackedScene" uid="uid://vrkogkrk6776" path="res://lantern test/lantern.tscn" id="3_b3mja"]
+[ext_resource type="Script" uid="uid://bowt1p3b33y2g" path="res://Scripts/lamp_interact.gd" id="1_dwptl"]
+[ext_resource type="PackedScene" uid="uid://i47vebt07w1t" path="res://FX/insects/insects.tscn" id="2_wqq4u"]
+[ext_resource type="PackedScene" uid="uid://ddqxi8ajs1lt0" path="res://WeirdLantern/weird_lantern.tscn" id="3_dwptl"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_pmced"]
 radius = 0.3
@@ -18,7 +18,7 @@ height = 0.49536133
 radius = 0.11
 
 [node name="StaticBody3D" type="StaticBody3D" unique_id=1152542308]
-script = ExtResource("1_qsh1f")
+script = ExtResource("1_dwptl")
 interact_prompt = "Turn on Light"
 can_interact = false
 
@@ -38,6 +38,7 @@ light_color = Color(1, 0.73333335, 0.38039216, 1)
 light_energy = 7.0
 light_indirect_energy = 2.158
 light_volumetric_fog_energy = 2.0
+light_size = 0.3
 light_cull_mask = 4294967293
 shadow_enabled = true
 shadow_caster_mask = 4294967293
@@ -46,7 +47,8 @@ distance_fade_shadow = 30.0
 distance_fade_length = 40.0
 omni_attenuation = 0.3
 
-[node name="Insects" parent="." unique_id=1935462078 instance=ExtResource("2_s67b3")]
+[node name="Insects" parent="." unique_id=1935462078 instance=ExtResource("2_wqq4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25451526, 0)
 
-[node name="Lantern" parent="." unique_id=767324640 instance=ExtResource("3_b3mja")]
+[node name="WeirdLantern" parent="." unique_id=1507915112 instance=ExtResource("3_dwptl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22454607, 0)

@@ -1,0 +1,15 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://cpudw30wxm3ow"]
+
+[ext_resource type="Texture2D" uid="uid://copousrt3e5gw" path="res://WeirdLantern/DefaultMaterial_baseColor.png" id="1_u2q7v"]
+[ext_resource type="Texture2D" uid="uid://dbboafejmg242" path="res://WeirdLantern/DefaultMaterial_emissive.png" id="2_wx2rc"]
+[ext_resource type="Texture2D" uid="uid://wnfdv244uoek" path="res://WeirdLantern/DefaultMaterial_normal.png" id="3_73uav"]
+[ext_resource type="Texture2D" uid="uid://b5um10acuugm5" path="res://WeirdLantern/DefaultMaterial_occlusionRoughnessMetallic.png" id="4_ip0ul"]
+
+[resource]
+albedo_texture = ExtResource("1_u2q7v")
+orm_texture = ExtResource("4_ip0ul")
+emission_enabled = true
+emission_energy_multiplier = 5.0
+emission_texture = ExtResource("2_wx2rc")
+normal_enabled = true
+normal_texture = ExtResource("3_73uav")

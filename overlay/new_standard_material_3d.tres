@@ -1,0 +1,27 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cxmpay2mjmt1j"]
+
+[ext_resource type="Shader" uid="uid://ykscqdmejn43" path="res://overlay/overlay.gdshader" id="1_k4a8d"]
+
+[sub_resource type="Gradient" id="Gradient_b2wp3"]
+offsets = PackedFloat32Array(0, 0.6948775)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c5sxu"]
+gradient = SubResource("Gradient_b2wp3")
+fill = 1
+fill_from = Vector2(0.51282054, 0.47863248)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ibns"]
+render_priority = 0
+shader = ExtResource("1_k4a8d")
+
+[resource]
+next_pass = SubResource("ShaderMaterial_4ibns")
+blend_mode = 3
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+albedo_color = Color(4.682376, 4.682376, 4.682376, 0)
+albedo_texture = SubResource("GradientTexture2D_c5sxu")
+stencil_flags = 2

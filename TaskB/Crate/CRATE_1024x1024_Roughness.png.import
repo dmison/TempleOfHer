@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckowp4ad2gwj0"
 path.s3tc="res://.godot/imported/CRATE_1024x1024_Roughness.png-148463cb637f05f47f93147550390c91.s3tc.ctex"
+path.etc2="res://.godot/imported/CRATE_1024x1024_Roughness.png-148463cb637f05f47f93147550390c91.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://TaskB/Crate/CRATE_1024x1024_Roughness.png"
-dest_files=["res://.godot/imported/CRATE_1024x1024_Roughness.png-148463cb637f05f47f93147550390c91.s3tc.ctex"]
+dest_files=["res://.godot/imported/CRATE_1024x1024_Roughness.png-148463cb637f05f47f93147550390c91.s3tc.ctex", "res://.godot/imported/CRATE_1024x1024_Roughness.png-148463cb637f05f47f93147550390c91.etc2.ctex"]
 
 [params]
 

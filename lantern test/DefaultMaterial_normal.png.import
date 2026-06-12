@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://kmevrblo5pkp"
 path.s3tc="res://.godot/imported/DefaultMaterial_normal.png-0389c8f7cb1161904be3873503b105ad.s3tc.ctex"
+path.etc2="res://.godot/imported/DefaultMaterial_normal.png-0389c8f7cb1161904be3873503b105ad.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://lantern test/DefaultMaterial_normal.png"
-dest_files=["res://.godot/imported/DefaultMaterial_normal.png-0389c8f7cb1161904be3873503b105ad.s3tc.ctex"]
+dest_files=["res://.godot/imported/DefaultMaterial_normal.png-0389c8f7cb1161904be3873503b105ad.s3tc.ctex", "res://.godot/imported/DefaultMaterial_normal.png-0389c8f7cb1161904be3873503b105ad.etc2.ctex"]
 
 [params]
 

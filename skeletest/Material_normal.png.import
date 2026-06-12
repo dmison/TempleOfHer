@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dub7nwrkw502v"
 path.s3tc="res://.godot/imported/Material_normal.png-c0c32a46cfe73dbdd5dac4c619f9a240.s3tc.ctex"
+path.etc2="res://.godot/imported/Material_normal.png-c0c32a46cfe73dbdd5dac4c619f9a240.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://skeletest/Material_normal.png"
-dest_files=["res://.godot/imported/Material_normal.png-c0c32a46cfe73dbdd5dac4c619f9a240.s3tc.ctex"]
+dest_files=["res://.godot/imported/Material_normal.png-c0c32a46cfe73dbdd5dac4c619f9a240.s3tc.ctex", "res://.godot/imported/Material_normal.png-c0c32a46cfe73dbdd5dac4c619f9a240.etc2.ctex"]
 
 [params]
 

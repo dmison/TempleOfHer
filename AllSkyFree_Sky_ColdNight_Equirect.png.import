@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca10m6renn80d"
 path.s3tc="res://.godot/imported/AllSkyFree_Sky_ColdNight_Equirect.png-135f62ba6d0587ac717299f595f00d70.s3tc.ctex"
+path.etc2="res://.godot/imported/AllSkyFree_Sky_ColdNight_Equirect.png-135f62ba6d0587ac717299f595f00d70.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://AllSkyFree_Sky_ColdNight_Equirect.png"
-dest_files=["res://.godot/imported/AllSkyFree_Sky_ColdNight_Equirect.png-135f62ba6d0587ac717299f595f00d70.s3tc.ctex"]
+dest_files=["res://.godot/imported/AllSkyFree_Sky_ColdNight_Equirect.png-135f62ba6d0587ac717299f595f00d70.s3tc.ctex", "res://.godot/imported/AllSkyFree_Sky_ColdNight_Equirect.png-135f62ba6d0587ac717299f595f00d70.etc2.ctex"]
 
 [params]
 

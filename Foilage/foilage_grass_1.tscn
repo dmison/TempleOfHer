@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b35xulj7ro3nm"]
+
+[ext_resource type="Material" uid="uid://gn7xyy3yurr7" path="res://Foilage/grass_1_material.tres" id="1_8sg5h"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_8sg5h"]
+size = Vector2(0.3, 0.3)
+
+[node name="Grass1" type="MeshInstance3D" unique_id=1491800317]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.031015694, 0)
+mesh = SubResource("QuadMesh_8sg5h")
+surface_material_override/0 = ExtResource("1_8sg5h")

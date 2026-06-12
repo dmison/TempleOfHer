@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd1je4c5sbdn3"
 path.s3tc="res://.godot/imported/Tree3_Mat_Normal.png-b5e92a8ee1f2848b1e472598a0e18d13.s3tc.ctex"
+path.etc2="res://.godot/imported/Tree3_Mat_Normal.png-b5e92a8ee1f2848b1e472598a0e18d13.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://TaskB/Trees/Three/Tree3_Mat_Normal.png"
-dest_files=["res://.godot/imported/Tree3_Mat_Normal.png-b5e92a8ee1f2848b1e472598a0e18d13.s3tc.ctex"]
+dest_files=["res://.godot/imported/Tree3_Mat_Normal.png-b5e92a8ee1f2848b1e472598a0e18d13.s3tc.ctex", "res://.godot/imported/Tree3_Mat_Normal.png-b5e92a8ee1f2848b1e472598a0e18d13.etc2.ctex"]
 
 [params]
 

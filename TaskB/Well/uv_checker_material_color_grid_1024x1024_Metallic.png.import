@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://rqhpv2obmewh"
 path.s3tc="res://.godot/imported/uv_checker_material_color_grid_1024x1024_Metallic.png-02a8c980b7bdc4263da64b37e2054f54.s3tc.ctex"
+path.etc2="res://.godot/imported/uv_checker_material_color_grid_1024x1024_Metallic.png-02a8c980b7bdc4263da64b37e2054f54.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://TaskB/Well/uv_checker_material_color_grid_1024x1024_Metallic.png"
-dest_files=["res://.godot/imported/uv_checker_material_color_grid_1024x1024_Metallic.png-02a8c980b7bdc4263da64b37e2054f54.s3tc.ctex"]
+dest_files=["res://.godot/imported/uv_checker_material_color_grid_1024x1024_Metallic.png-02a8c980b7bdc4263da64b37e2054f54.s3tc.ctex", "res://.godot/imported/uv_checker_material_color_grid_1024x1024_Metallic.png-02a8c980b7bdc4263da64b37e2054f54.etc2.ctex"]
 
 [params]
 

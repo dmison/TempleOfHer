@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://durmdnsli7aa8"
 path.s3tc="res://.godot/imported/DefaultMaterial_baseColor.png-8eb64ffa5f4335a1e41167e76729cae4.s3tc.ctex"
+path.etc2="res://.godot/imported/DefaultMaterial_baseColor.png-8eb64ffa5f4335a1e41167e76729cae4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://lantern test/DefaultMaterial_baseColor.png"
-dest_files=["res://.godot/imported/DefaultMaterial_baseColor.png-8eb64ffa5f4335a1e41167e76729cae4.s3tc.ctex"]
+dest_files=["res://.godot/imported/DefaultMaterial_baseColor.png-8eb64ffa5f4335a1e41167e76729cae4.s3tc.ctex", "res://.godot/imported/DefaultMaterial_baseColor.png-8eb64ffa5f4335a1e41167e76729cae4.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://rgag5hv00ytm"
 path.s3tc="res://.godot/imported/DefaultMaterial_BaseColor.png-aa7318cf40a5af2cafdab95b2c45f83c.s3tc.ctex"
+path.etc2="res://.godot/imported/DefaultMaterial_BaseColor.png-aa7318cf40a5af2cafdab95b2c45f83c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://TaskB/MarkerStones/DefaultMaterial_BaseColor.png"
-dest_files=["res://.godot/imported/DefaultMaterial_BaseColor.png-aa7318cf40a5af2cafdab95b2c45f83c.s3tc.ctex"]
+dest_files=["res://.godot/imported/DefaultMaterial_BaseColor.png-aa7318cf40a5af2cafdab95b2c45f83c.s3tc.ctex", "res://.godot/imported/DefaultMaterial_BaseColor.png-aa7318cf40a5af2cafdab95b2c45f83c.etc2.ctex"]
 
 [params]
 

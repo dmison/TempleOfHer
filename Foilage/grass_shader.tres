@@ -1,0 +1,14 @@
+[gd_resource type="VisualShader" format=3 uid="uid://byj1f10lbypjv"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_i6rb4"]
+output_port_for_preview = 0
+parameter_name = "ColorParameter"
+default_value_enabled = true
+default_value = Color(0.29411766, 1, 1, 1)
+
+[resource]
+nodes/vertex/0/position = Vector2(460, 160)
+nodes/fragment/0/position = Vector2(500, 100)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_i6rb4")
+nodes/fragment/2/position = Vector2(40, 120)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)

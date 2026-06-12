@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1n5mfc4dywvi"
 path.s3tc="res://.godot/imported/Tree3_Mat_BaseColor.png-6e826e00fd1898434633af4eb27b6b60.s3tc.ctex"
+path.etc2="res://.godot/imported/Tree3_Mat_BaseColor.png-6e826e00fd1898434633af4eb27b6b60.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://TaskB/Trees/Three/Tree3_Mat_BaseColor.png"
-dest_files=["res://.godot/imported/Tree3_Mat_BaseColor.png-6e826e00fd1898434633af4eb27b6b60.s3tc.ctex"]
+dest_files=["res://.godot/imported/Tree3_Mat_BaseColor.png-6e826e00fd1898434633af4eb27b6b60.s3tc.ctex", "res://.godot/imported/Tree3_Mat_BaseColor.png-6e826e00fd1898434633af4eb27b6b60.etc2.ctex"]
 
 [params]
 

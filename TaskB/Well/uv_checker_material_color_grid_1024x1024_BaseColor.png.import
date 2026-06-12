@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck512wru0q4tf"
 path.s3tc="res://.godot/imported/uv_checker_material_color_grid_1024x1024_BaseColor.png-63f27cbd5bdcc3a3a5544fbd77a120a7.s3tc.ctex"
+path.etc2="res://.godot/imported/uv_checker_material_color_grid_1024x1024_BaseColor.png-63f27cbd5bdcc3a3a5544fbd77a120a7.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://TaskB/Well/uv_checker_material_color_grid_1024x1024_BaseColor.png"
-dest_files=["res://.godot/imported/uv_checker_material_color_grid_1024x1024_BaseColor.png-63f27cbd5bdcc3a3a5544fbd77a120a7.s3tc.ctex"]
+dest_files=["res://.godot/imported/uv_checker_material_color_grid_1024x1024_BaseColor.png-63f27cbd5bdcc3a3a5544fbd77a120a7.s3tc.ctex", "res://.godot/imported/uv_checker_material_color_grid_1024x1024_BaseColor.png-63f27cbd5bdcc3a3a5544fbd77a120a7.etc2.ctex"]
 
 [params]
 

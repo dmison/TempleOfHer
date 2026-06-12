@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0nrt8nohasok"
 path.s3tc="res://.godot/imported/Material_occlusionRoughnessMetallic.png-acf75f89fdb918b5e90d7fdb40c54b4d.s3tc.ctex"
+path.etc2="res://.godot/imported/Material_occlusionRoughnessMetallic.png-acf75f89fdb918b5e90d7fdb40c54b4d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://TaskB/Monolith/Material_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/Material_occlusionRoughnessMetallic.png-acf75f89fdb918b5e90d7fdb40c54b4d.s3tc.ctex"]
+dest_files=["res://.godot/imported/Material_occlusionRoughnessMetallic.png-acf75f89fdb918b5e90d7fdb40c54b4d.s3tc.ctex", "res://.godot/imported/Material_occlusionRoughnessMetallic.png-acf75f89fdb918b5e90d7fdb40c54b4d.etc2.ctex"]
 
 [params]
 

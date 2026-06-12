@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbftwwdr1vuim"
 path.s3tc="res://.godot/imported/Tree2_Mat_Metallic.png-c51cd9472d5f6b89284f550e5af86000.s3tc.ctex"
+path.etc2="res://.godot/imported/Tree2_Mat_Metallic.png-c51cd9472d5f6b89284f550e5af86000.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://TaskB/Trees/Two/Tree2_Mat_Metallic.png"
-dest_files=["res://.godot/imported/Tree2_Mat_Metallic.png-c51cd9472d5f6b89284f550e5af86000.s3tc.ctex"]
+dest_files=["res://.godot/imported/Tree2_Mat_Metallic.png-c51cd9472d5f6b89284f550e5af86000.s3tc.ctex", "res://.godot/imported/Tree2_Mat_Metallic.png-c51cd9472d5f6b89284f550e5af86000.etc2.ctex"]
 
 [params]
 

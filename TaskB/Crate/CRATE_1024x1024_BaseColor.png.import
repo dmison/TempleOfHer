@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxo1af3c212w3"
 path.s3tc="res://.godot/imported/CRATE_1024x1024_BaseColor.png-83378228edebf214b694ca3e32c41057.s3tc.ctex"
+path.etc2="res://.godot/imported/CRATE_1024x1024_BaseColor.png-83378228edebf214b694ca3e32c41057.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://TaskB/Crate/CRATE_1024x1024_BaseColor.png"
-dest_files=["res://.godot/imported/CRATE_1024x1024_BaseColor.png-83378228edebf214b694ca3e32c41057.s3tc.ctex"]
+dest_files=["res://.godot/imported/CRATE_1024x1024_BaseColor.png-83378228edebf214b694ca3e32c41057.s3tc.ctex", "res://.godot/imported/CRATE_1024x1024_BaseColor.png-83378228edebf214b694ca3e32c41057.etc2.ctex"]
 
 [params]
 

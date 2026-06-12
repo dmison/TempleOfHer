@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://blb1w16ypombi"]
+
+[ext_resource type="Shader" uid="uid://byj1f10lbypjv" path="res://Foilage/grass_shader.tres" id="1_y6ios"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_y6ios")
+shader_parameter/ColorParameter = Color(0.105786614, 0.48398483, 0.4728613, 1)

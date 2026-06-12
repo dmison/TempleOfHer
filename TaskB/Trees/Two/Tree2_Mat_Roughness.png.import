@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpgheqxr6umbw"
 path.s3tc="res://.godot/imported/Tree2_Mat_Roughness.png-9cbbfd435f8fab9a7fc8bde79f0dd909.s3tc.ctex"
+path.etc2="res://.godot/imported/Tree2_Mat_Roughness.png-9cbbfd435f8fab9a7fc8bde79f0dd909.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://TaskB/Trees/Two/Tree2_Mat_Roughness.png"
-dest_files=["res://.godot/imported/Tree2_Mat_Roughness.png-9cbbfd435f8fab9a7fc8bde79f0dd909.s3tc.ctex"]
+dest_files=["res://.godot/imported/Tree2_Mat_Roughness.png-9cbbfd435f8fab9a7fc8bde79f0dd909.s3tc.ctex", "res://.godot/imported/Tree2_Mat_Roughness.png-9cbbfd435f8fab9a7fc8bde79f0dd909.etc2.ctex"]
 
 [params]
 

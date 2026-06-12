@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxcru8t7vqq5q"
 path.s3tc="res://.godot/imported/CRATE_1024x1024_Normal.png-d4f3307a4b362394e6528b1f5f041f9d.s3tc.ctex"
+path.etc2="res://.godot/imported/CRATE_1024x1024_Normal.png-d4f3307a4b362394e6528b1f5f041f9d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://TaskB/Crate/CRATE_1024x1024_Normal.png"
-dest_files=["res://.godot/imported/CRATE_1024x1024_Normal.png-d4f3307a4b362394e6528b1f5f041f9d.s3tc.ctex"]
+dest_files=["res://.godot/imported/CRATE_1024x1024_Normal.png-d4f3307a4b362394e6528b1f5f041f9d.s3tc.ctex", "res://.godot/imported/CRATE_1024x1024_Normal.png-d4f3307a4b362394e6528b1f5f041f9d.etc2.ctex"]
 
 [params]
 

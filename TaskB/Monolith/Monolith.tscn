@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://ck4a3o7pipxqu" path="res://TaskB/Monolith/new_standard_material_3d.tres" id="2_4mqx7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_juos8"]
-size = Vector3(0.39896584, 2000.9055, 1.0549011)
+size = Vector3(0.39896584, 2.3210192, 1.0549011)
 
 [node name="Monolith" type="StaticBody3D" unique_id=2070746684]
 
@@ -14,5 +14,5 @@ mesh = ExtResource("1_juos8")
 surface_material_override/0 = ExtResource("2_4mqx7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1840453402]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0024175644, 1000.4301, -0.0041046143)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1008945, 0)
 shape = SubResource("BoxShape3D_juos8")

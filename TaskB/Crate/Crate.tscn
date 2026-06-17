@@ -3,13 +3,22 @@
 [ext_resource type="PackedScene" uid="uid://bx73iq4amja43" path="res://TaskB/Crate/Crate_LP.fbx" id="1_0ypnj"]
 [ext_resource type="Material" uid="uid://c7b7sciya4hy2" path="res://TaskB/Crate/new_standard_material_3d.tres" id="2_3ld01"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hnc4a"]
+size = Vector3(1.5083313, 0.49523926, 0.64178467)
+
 [node name="Crate_LP" unique_id=1301539002 instance=ExtResource("1_0ypnj")]
 
-[node name="CRATE_LP" parent="." index="0" unique_id=1055156684]
+[node name="CRATE_LP" parent="." index="0" unique_id=151284251]
 surface_material_override/0 = ExtResource("2_3ld01")
 
-[node name="Rope1_LP" parent="." index="1" unique_id=1059476336]
+[node name="Rope1_LP" parent="." index="1" unique_id=1302605817]
 surface_material_override/0 = ExtResource("2_3ld01")
 
-[node name="Rope2_LP" parent="." index="2" unique_id=2029140182]
+[node name="Rope2_LP" parent="." index="2" unique_id=1408933438]
 surface_material_override/0 = ExtResource("2_3ld01")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3" unique_id=266445141]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=281103186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04121399, 0.23553467, 0.010528564)
+shape = SubResource("BoxShape3D_hnc4a")

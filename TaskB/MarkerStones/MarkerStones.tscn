@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://lhvagfvhetk"]
 
-[ext_resource type="ArrayMesh" uid="uid://c8116b48u33uw" path="res://TaskB/MarkerStones/Plane_013.res" id="1_g0o6y"]
-[ext_resource type="Material" uid="uid://cmsg2mdxfhrak" path="res://TaskB/MarkerStones/new_standard_material_3d.tres" id="2_qcwxo"]
+[ext_resource type="ArrayMesh" uid="uid://drxqegj8ckjfd" path="res://TaskB/MarkerStones/Plane_013.res" id="1_g0o6y"]
+[ext_resource type="Material" uid="uid://ckfnm18nrsnmx" path="res://TaskB/MarkerStones/Moss/MAT_MarkerSTones_Moss.tres" id="2_g0o6y"]
 
 [node name="MarkerStones" type="Node3D" unique_id=1444386908]
 
 [node name="Plane013" type="MeshInstance3D" parent="." unique_id=1696248499]
 transform = Transform3D(100, 0, 0, 0, -4.371139e-06, 100, 0, -100, -4.371139e-06, 0, 0, 0)
 mesh = ExtResource("1_g0o6y")
-surface_material_override/0 = ExtResource("2_qcwxo")
+surface_material_override/0 = ExtResource("2_g0o6y")

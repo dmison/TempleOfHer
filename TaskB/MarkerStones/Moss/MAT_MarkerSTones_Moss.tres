@@ -1,0 +1,11 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://ckfnm18nrsnmx"]
+
+[ext_resource type="Texture2D" uid="uid://brv5tpiuy51ax" path="res://TaskB/MarkerStones/Moss/DefaultMaterial_baseColor.png" id="1_58i6d"]
+[ext_resource type="Texture2D" uid="uid://c24nofxgxq7p" path="res://TaskB/MarkerStones/Moss/DefaultMaterial_normal.png" id="2_ao674"]
+[ext_resource type="Texture2D" uid="uid://unmjjsvposox" path="res://TaskB/MarkerStones/Moss/DefaultMaterial_occlusionRoughnessMetallic.png" id="3_ofcqr"]
+
+[resource]
+albedo_texture = ExtResource("1_58i6d")
+orm_texture = ExtResource("3_ofcqr")
+normal_enabled = true
+normal_texture = ExtResource("2_ao674")

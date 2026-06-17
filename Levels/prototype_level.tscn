@@ -1,14 +1,8 @@
 [gd_scene format=3 uid="uid://cxhd5o48xodt0"]
 
-[ext_resource type="Material" uid="uid://ccig06dxu8th3" path="res://Materials/dark_texture_1.material" id="1_4h5u6"]
 [ext_resource type="Texture2D" uid="uid://c1ghl7c44te2a" path="res://AllSkyFree_Sky_OvercastLow_Equirect.png" id="1_8hmpj"]
 [ext_resource type="PackedScene" uid="uid://d22vtyfpioa4y" path="res://Prefabs/PlayerCharacter.tscn" id="1_iac22"]
 [ext_resource type="PackedScene" uid="uid://c0uhki22h1p5a" path="res://Prefabs/lamp.tscn" id="3_pmced"]
-[ext_resource type="Shader" uid="uid://tfcx67iqa2mx" path="res://Levels/underwater.gdshader" id="5_6sa31"]
-[ext_resource type="PackedScene" uid="uid://bxnjcer7mc0km" path="res://trees/trees.glb" id="6_4o5f7"]
-[ext_resource type="Texture2D" path="res://Textures/kenney_prototype-textures/PNG/Orange/texture_01.png" id="8_kkgl6"]
-[ext_resource type="Texture2D" path="res://Textures/kenney_prototype-textures/PNG/Dark/texture_01.png" id="9_wgg18"]
-[ext_resource type="Texture2D" path="res://Textures/kenney_prototype-textures/PNG/Green/texture_01.png" id="10_mndwx"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_op5fs"]
 panorama = ExtResource("1_8hmpj")
@@ -50,9 +44,65 @@ albedo = Color(1.3235956e-07, 0.2727744, 0.18855336, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4o5f7"]
 
+[sub_resource type="Shader" id="Shader_y86ln"]
+code = "shader_type spatial;
+render_mode unshaded; //, fog_disabled;
+
+
+// Depth Colors
+uniform vec4 primary_color : source_color;
+uniform vec4 secondary_color: source_color;
+uniform float roughness = 0.2;
+// Wave Normal Maps
+uniform sampler2D normalmap_a : hint_normal;
+uniform sampler2D normalmap_b: hint_normal;
+uniform float normalmap_a_strength : hint_range(0.0, 1.0, 0.01) = 0.5;
+uniform float normalmap_b_strength : hint_range(0.0, 1.0, 0.01) = 0.25;
+uniform vec2 movement_direction = vec2(0.2,0.1);
+uniform float movement_strength = 0.12;
+// UV Settings
+uniform float uv_scale = 1.0;
+
+// ================
+
+// ================
+
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
+uniform sampler2D depth_texture : hint_depth_texture, repeat_disable, filter_nearest;
+// Depth Value
+uniform float depth_distance : hint_range(0.0, 100.0, 0.1) = 4.0;
+uniform float beers_law : hint_range(0.0, 20.0, 0.1) = 12.0;
+uniform float water_transparency : hint_range(0.0, 1.0, 0.01) = 0.05;
+
+// ================
+
+void fragment() {
+
+	float depth = textureLod(depth_texture, SCREEN_UV, 0.0).r;
+	vec3 screen = textureLod(screen_texture, SCREEN_UV, 0.0).rgb;
+	// ================
+
+	// Get Depth in World Position (Y)
+	vec3 ndc = vec3(SCREEN_UV * 2.0 - 1.0, depth);
+	vec4 world = INV_VIEW_MATRIX * INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
+	float depth_texture_y = world.y / world.w;
+	float vertex_y = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).y;
+	// Set Depth Blend and adjust with Beer's Law
+	float depth_blend = clamp((vertex_y - depth_texture_y) / depth_distance, 0.0, 1.0);
+	depth_blend = exp(-depth_blend * beers_law);
+
+	// Set depth 	color mix from depth blend and get final color mix using screen texture 
+	vec3 depth_color = mix(secondary_color, primary_color, depth_blend).rgb;
+	vec3 final_color = mix(depth_color.rgb, screen, water_transparency);
+	ALBEDO = mix(final_color, screen, depth_blend); // * (1.0 - basic_fresnel));
+}
+
+
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8hmpj"]
 render_priority = 0
-shader = ExtResource("5_6sa31")
+shader = SubResource("Shader_y86ln")
 shader_parameter/primary_color = Color(0, 0.40784314, 0.6039216, 1)
 shader_parameter/secondary_color = Color(0, 0.1254902, 0.20392157, 1)
 shader_parameter/roughness = 0.2
@@ -66,16 +116,12 @@ shader_parameter/beers_law = 12.0
 shader_parameter/water_transparency = 0.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fllr4"]
-albedo_texture = ExtResource("8_kkgl6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8s3g"]
-albedo_texture = ExtResource("9_wgg18")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkgl6"]
-albedo_texture = ExtResource("10_mndwx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0dxcf"]
-albedo_texture = ExtResource("10_mndwx")
 
 [node name="Node3D" type="Node3D" unique_id=714249884]
 
@@ -98,7 +144,6 @@ light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 
 [node name="BLOCKOUT" type="Node3D" parent="." unique_id=1147517961]
-visible = false
 
 [node name="lamp3" parent="BLOCKOUT" unique_id=1072386244 instance=ExtResource("3_pmced")]
 transform = Transform3D(-4.371139e-08, 1, 8.742278e-08, 1, 4.371139e-08, 3.821371e-15, 0, 8.742278e-08, -1, 6.586464, 4.0930815, -5.5358295)
@@ -167,7 +212,6 @@ use_collision = true
 [node name="ground" type="CSGBox3D" parent="BLOCKOUT/terrain" unique_id=657734236]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.929253, -0.17953408, 5.2032223)
 size = Vector3(95, 0.25, 104)
-material = ExtResource("1_4h5u6")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="BLOCKOUT" unique_id=2001864539]
 transform = Transform3D(7.4051976, 0, 0, 0, -3.4016033e-08, -3.9283729, 0, 0.7781961, -1.7171463e-07, -12.526, 3.79, -30.237999)
@@ -175,151 +219,151 @@ visible = false
 mesh = SubResource("PlaneMesh_4o5f7")
 surface_material_override/0 = SubResource("ShaderMaterial_8hmpj")
 
-[node name="trees" parent="BLOCKOUT" unique_id=196929422 instance=ExtResource("6_4o5f7")]
+[node name="trees" parent="BLOCKOUT" unique_id=196929422]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.394955, 6.7486873, 28.149366)
 
-[node name="trees5" parent="BLOCKOUT" unique_id=1352519896 instance=ExtResource("6_4o5f7")]
+[node name="trees5" parent="BLOCKOUT" unique_id=1352519896]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8727188, 8.101288, 17.24382)
 
-[node name="trees7" parent="BLOCKOUT" unique_id=1224201460 instance=ExtResource("6_4o5f7")]
+[node name="trees7" parent="BLOCKOUT" unique_id=1224201460]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8727188, 10.701288, 20.343822)
 
-[node name="trees24" parent="BLOCKOUT" unique_id=820991218 instance=ExtResource("6_4o5f7")]
+[node name="trees24" parent="BLOCKOUT" unique_id=820991218]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.127281, 13.701288, 22.343822)
 
-[node name="trees25" parent="BLOCKOUT" unique_id=1254655049 instance=ExtResource("6_4o5f7")]
+[node name="trees25" parent="BLOCKOUT" unique_id=1254655049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.127281, 13.701288, 22.343822)
 
-[node name="trees36" parent="BLOCKOUT" unique_id=110597087 instance=ExtResource("6_4o5f7")]
+[node name="trees36" parent="BLOCKOUT" unique_id=110597087]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1272812, 12.701288, 28.343822)
 
-[node name="trees26" parent="BLOCKOUT" unique_id=658652514 instance=ExtResource("6_4o5f7")]
+[node name="trees26" parent="BLOCKOUT" unique_id=658652514]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1272812, 13.701288, 22.343822)
 
-[node name="trees37" parent="BLOCKOUT" unique_id=543357117 instance=ExtResource("6_4o5f7")]
+[node name="trees37" parent="BLOCKOUT" unique_id=543357117]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.127281, 10.701288, 22.343822)
 
-[node name="trees38" parent="BLOCKOUT" unique_id=1625132299 instance=ExtResource("6_4o5f7")]
+[node name="trees38" parent="BLOCKOUT" unique_id=1625132299]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.127281, 10.701288, 22.343822)
 
-[node name="trees39" parent="BLOCKOUT" unique_id=1120163491 instance=ExtResource("6_4o5f7")]
+[node name="trees39" parent="BLOCKOUT" unique_id=1120163491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.127281, 10.701288, 22.343822)
 
-[node name="trees27" parent="BLOCKOUT" unique_id=193950003 instance=ExtResource("6_4o5f7")]
+[node name="trees27" parent="BLOCKOUT" unique_id=193950003]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12728119, 13.701288, 22.343822)
 
-[node name="trees43" parent="BLOCKOUT" unique_id=1340813622 instance=ExtResource("6_4o5f7")]
+[node name="trees43" parent="BLOCKOUT" unique_id=1340813622]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8727188, 10.701288, 22.343822)
 
-[node name="trees8" parent="BLOCKOUT" unique_id=820026384 instance=ExtResource("6_4o5f7")]
+[node name="trees8" parent="BLOCKOUT" unique_id=820026384]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.872719, 10.701288, 28.343822)
 
-[node name="trees2" parent="BLOCKOUT" unique_id=22231078 instance=ExtResource("6_4o5f7")]
+[node name="trees2" parent="BLOCKOUT" unique_id=22231078]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51857, 6.348687, 13.744772)
 
-[node name="trees4" parent="BLOCKOUT" unique_id=398189723 instance=ExtResource("6_4o5f7")]
+[node name="trees4" parent="BLOCKOUT" unique_id=398189723]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6684265, 3.1486874, 8.264147)
 
-[node name="trees6" parent="BLOCKOUT" unique_id=1398837862 instance=ExtResource("6_4o5f7")]
+[node name="trees6" parent="BLOCKOUT" unique_id=1398837862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4684258, 0.94868714, 3.2641468)
 
-[node name="trees40" parent="BLOCKOUT" unique_id=726696804 instance=ExtResource("6_4o5f7")]
+[node name="trees40" parent="BLOCKOUT" unique_id=726696804]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.51857, 6.348687, 13.744772)
 
-[node name="trees41" parent="BLOCKOUT" unique_id=1974556885 instance=ExtResource("6_4o5f7")]
+[node name="trees41" parent="BLOCKOUT" unique_id=1974556885]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6684265, 3.1486874, 8.264147)
 
-[node name="trees42" parent="BLOCKOUT" unique_id=1651372424 instance=ExtResource("6_4o5f7")]
+[node name="trees42" parent="BLOCKOUT" unique_id=1651372424]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4684258, 0.94868714, 3.2641468)
 
-[node name="trees28" parent="BLOCKOUT" unique_id=2077866415 instance=ExtResource("6_4o5f7")]
+[node name="trees28" parent="BLOCKOUT" unique_id=2077866415]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4684258, 0.94868714, -0.7358532)
 
-[node name="trees35" parent="BLOCKOUT" unique_id=1687828162 instance=ExtResource("6_4o5f7")]
+[node name="trees35" parent="BLOCKOUT" unique_id=1687828162]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.468422, 0.94868714, -5.735853)
 
-[node name="trees9" parent="BLOCKOUT" unique_id=2097108703 instance=ExtResource("6_4o5f7")]
+[node name="trees9" parent="BLOCKOUT" unique_id=2097108703]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.531574, 0.94868714, -5.735853)
 
-[node name="trees10" parent="BLOCKOUT" unique_id=2121946616 instance=ExtResource("6_4o5f7")]
+[node name="trees10" parent="BLOCKOUT" unique_id=2121946616]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.531574, 0.94868714, -1.7358532)
 
-[node name="trees11" parent="BLOCKOUT" unique_id=141427168 instance=ExtResource("6_4o5f7")]
+[node name="trees11" parent="BLOCKOUT" unique_id=141427168]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.531574, 0.94868714, -6.735853)
 
-[node name="trees34" parent="BLOCKOUT" unique_id=1630012793 instance=ExtResource("6_4o5f7")]
+[node name="trees34" parent="BLOCKOUT" unique_id=1630012793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.531574, 0.94868714, -8.735853)
 
-[node name="trees12" parent="BLOCKOUT" unique_id=549585142 instance=ExtResource("6_4o5f7")]
+[node name="trees12" parent="BLOCKOUT" unique_id=549585142]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.531574, 0.94868714, 4.264147)
 
-[node name="trees29" parent="BLOCKOUT" unique_id=152028022 instance=ExtResource("6_4o5f7")]
+[node name="trees29" parent="BLOCKOUT" unique_id=152028022]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.531574, 0.94868714, 9.264147)
 
-[node name="trees30" parent="BLOCKOUT" unique_id=388635642 instance=ExtResource("6_4o5f7")]
+[node name="trees30" parent="BLOCKOUT" unique_id=388635642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.531574, 0.94868714, 3.2641468)
 
-[node name="trees31" parent="BLOCKOUT" unique_id=471974147 instance=ExtResource("6_4o5f7")]
+[node name="trees31" parent="BLOCKOUT" unique_id=471974147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.531574, 0.94868714, 0.2641468)
 
-[node name="trees47" parent="BLOCKOUT" unique_id=564203509 instance=ExtResource("6_4o5f7")]
+[node name="trees47" parent="BLOCKOUT" unique_id=564203509]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.531574, 0.94868714, 4.264147)
 
-[node name="trees44" parent="BLOCKOUT" unique_id=1465484638 instance=ExtResource("6_4o5f7")]
+[node name="trees44" parent="BLOCKOUT" unique_id=1465484638]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.531574, 0.94868714, -11.735853)
 
-[node name="trees45" parent="BLOCKOUT" unique_id=51076216 instance=ExtResource("6_4o5f7")]
+[node name="trees45" parent="BLOCKOUT" unique_id=51076216]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.531574, 0.94868714, -11.735853)
 
-[node name="trees46" parent="BLOCKOUT" unique_id=1778784540 instance=ExtResource("6_4o5f7")]
+[node name="trees46" parent="BLOCKOUT" unique_id=1778784540]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.531574, 0.94868714, -15.735853)
 
-[node name="trees32" parent="BLOCKOUT" unique_id=206629510 instance=ExtResource("6_4o5f7")]
+[node name="trees32" parent="BLOCKOUT" unique_id=206629510]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.531574, 0.94868714, 0.2641468)
 
-[node name="trees33" parent="BLOCKOUT" unique_id=952435339 instance=ExtResource("6_4o5f7")]
+[node name="trees33" parent="BLOCKOUT" unique_id=952435339]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.531574, 0.94868714, 4.264147)
 
-[node name="trees13" parent="BLOCKOUT" unique_id=430970623 instance=ExtResource("6_4o5f7")]
+[node name="trees13" parent="BLOCKOUT" unique_id=430970623]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5315742, 0.94868714, 6.264147)
 
-[node name="trees14" parent="BLOCKOUT" unique_id=1084971469 instance=ExtResource("6_4o5f7")]
+[node name="trees14" parent="BLOCKOUT" unique_id=1084971469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5315742, 0.94868714, -5.735853)
 
-[node name="trees15" parent="BLOCKOUT" unique_id=741724 instance=ExtResource("6_4o5f7")]
+[node name="trees15" parent="BLOCKOUT" unique_id=741724]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5315742, 0.94868714, -6.735853)
 
-[node name="trees21" parent="BLOCKOUT" unique_id=892522916 instance=ExtResource("6_4o5f7")]
+[node name="trees21" parent="BLOCKOUT" unique_id=892522916]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5315742, 0.94868714, -8.735853)
 
-[node name="trees48" parent="BLOCKOUT" unique_id=419517162 instance=ExtResource("6_4o5f7")]
+[node name="trees48" parent="BLOCKOUT" unique_id=419517162]
 transform = Transform3D(0.4999999, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.4999999, -7.5315742, 0.94868714, -11.735853)
 
-[node name="trees49" parent="BLOCKOUT" unique_id=415407762 instance=ExtResource("6_4o5f7")]
+[node name="trees49" parent="BLOCKOUT" unique_id=415407762]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -7.5315742, 0.94868714, -13.735853)
 
-[node name="trees22" parent="BLOCKOUT" unique_id=1474255161 instance=ExtResource("6_4o5f7")]
+[node name="trees22" parent="BLOCKOUT" unique_id=1474255161]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5315742, 0.94868714, -7.735853)
 
-[node name="trees18" parent="BLOCKOUT" unique_id=1337612993 instance=ExtResource("6_4o5f7")]
+[node name="trees18" parent="BLOCKOUT" unique_id=1337612993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.931576, 0.94868714, -16.135855)
 
-[node name="trees19" parent="BLOCKOUT" unique_id=2006445815 instance=ExtResource("6_4o5f7")]
+[node name="trees19" parent="BLOCKOUT" unique_id=2006445815]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4684258, 0.94868714, -15.735853)
 
-[node name="trees20" parent="BLOCKOUT" unique_id=2043919735 instance=ExtResource("6_4o5f7")]
+[node name="trees20" parent="BLOCKOUT" unique_id=2043919735]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4684258, 0.94868714, -6.735853)
 
-[node name="trees23" parent="BLOCKOUT" unique_id=1845081155 instance=ExtResource("6_4o5f7")]
+[node name="trees23" parent="BLOCKOUT" unique_id=1845081155]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5315742, 0.94868714, -7.735853)
 
-[node name="trees16" parent="BLOCKOUT" unique_id=1930378508 instance=ExtResource("6_4o5f7")]
+[node name="trees16" parent="BLOCKOUT" unique_id=1930378508]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.931576, 0.94868714, -19.435854)
 
-[node name="trees17" parent="BLOCKOUT" unique_id=253875 instance=ExtResource("6_4o5f7")]
+[node name="trees17" parent="BLOCKOUT" unique_id=253875]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.468422, 0.94868714, -20.735853)
 
-[node name="trees3" parent="BLOCKOUT" unique_id=45484609 instance=ExtResource("6_4o5f7")]
+[node name="trees3" parent="BLOCKOUT" unique_id=45484609]
 transform = Transform3D(0.99997705, 0, -0.0067718257, 0, 1, 0, 0.0067718257, 0, 0.99997705, -0.67826843, 0.738345, 15.858702)
 
 [node name="forest path" type="CSGCombiner3D" parent="BLOCKOUT" unique_id=484715813]

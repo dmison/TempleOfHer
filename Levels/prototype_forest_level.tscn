@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://3aa24n5xoq0l"]
 
-[ext_resource type="Material" uid="uid://ccig06dxu8th3" path="res://Materials/dark_texture_1.material" id="1_328ii"]
 [ext_resource type="PackedScene" uid="uid://d22vtyfpioa4y" path="res://Prefabs/PlayerCharacter.tscn" id="2_nto5g"]
 [ext_resource type="PackedScene" uid="uid://c0uhki22h1p5a" path="res://Prefabs/lamp.tscn" id="3_g7q5q"]
-[ext_resource type="PackedScene" uid="uid://c1f0vxov84yof" path="res://ruin/ruins.glb" id="4_pn7pm"]
-[ext_resource type="Shader" uid="uid://tfcx67iqa2mx" path="res://Levels/underwater.gdshader" id="5_pac4k"]
-[ext_resource type="PackedScene" uid="uid://d3gj4c86351fs" path="res://trees/trees.glb" id="6_8ahk5"]
 
 [sub_resource type="Sky" id="Sky_6sa31"]
 
@@ -55,9 +51,65 @@ stencil_flags = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4o5f7"]
 
+[sub_resource type="Shader" id="Shader_y86ln"]
+code = "shader_type spatial;
+render_mode unshaded; //, fog_disabled;
+
+
+// Depth Colors
+uniform vec4 primary_color : source_color;
+uniform vec4 secondary_color: source_color;
+uniform float roughness = 0.2;
+// Wave Normal Maps
+uniform sampler2D normalmap_a : hint_normal;
+uniform sampler2D normalmap_b: hint_normal;
+uniform float normalmap_a_strength : hint_range(0.0, 1.0, 0.01) = 0.5;
+uniform float normalmap_b_strength : hint_range(0.0, 1.0, 0.01) = 0.25;
+uniform vec2 movement_direction = vec2(0.2,0.1);
+uniform float movement_strength = 0.12;
+// UV Settings
+uniform float uv_scale = 1.0;
+
+// ================
+
+// ================
+
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
+uniform sampler2D depth_texture : hint_depth_texture, repeat_disable, filter_nearest;
+// Depth Value
+uniform float depth_distance : hint_range(0.0, 100.0, 0.1) = 4.0;
+uniform float beers_law : hint_range(0.0, 20.0, 0.1) = 12.0;
+uniform float water_transparency : hint_range(0.0, 1.0, 0.01) = 0.05;
+
+// ================
+
+void fragment() {
+
+	float depth = textureLod(depth_texture, SCREEN_UV, 0.0).r;
+	vec3 screen = textureLod(screen_texture, SCREEN_UV, 0.0).rgb;
+	// ================
+
+	// Get Depth in World Position (Y)
+	vec3 ndc = vec3(SCREEN_UV * 2.0 - 1.0, depth);
+	vec4 world = INV_VIEW_MATRIX * INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
+	float depth_texture_y = world.y / world.w;
+	float vertex_y = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).y;
+	// Set Depth Blend and adjust with Beer's Law
+	float depth_blend = clamp((vertex_y - depth_texture_y) / depth_distance, 0.0, 1.0);
+	depth_blend = exp(-depth_blend * beers_law);
+
+	// Set depth 	color mix from depth blend and get final color mix using screen texture 
+	vec3 depth_color = mix(secondary_color, primary_color, depth_blend).rgb;
+	vec3 final_color = mix(depth_color.rgb, screen, water_transparency);
+	ALBEDO = mix(final_color, screen, depth_blend); // * (1.0 - basic_fresnel));
+}
+
+
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8hmpj"]
 render_priority = 0
-shader = ExtResource("5_pac4k")
+shader = SubResource("Shader_y86ln")
 shader_parameter/primary_color = Color(0, 0.40784314, 0.6039216, 1)
 shader_parameter/secondary_color = Color(0, 0.1254902, 0.20392157, 1)
 shader_parameter/roughness = 0.2
@@ -82,7 +134,6 @@ material = SubResource("FogMaterial_pmced")
 
 [node name="building" type="CSGCombiner3D" parent="." unique_id=147043922]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16428447, 0)
-material_override = ExtResource("1_328ii")
 use_collision = true
 
 [node name="glass" type="CSGBox3D" parent="building" unique_id=1588731052]
@@ -99,7 +150,6 @@ size = Vector3(17.366577, 3.968628, 16.203125)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6738892, 1.875, -6.8066273)
 operation = 2
 size = Vector3(7.75, 2, 2.75)
-material = ExtResource("1_328ii")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="building" unique_id=1163353809]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9389801, 1.5379295, 0.44366455)
@@ -131,7 +181,7 @@ transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -4.7
 visible = false
 interact_prompt = "Turn off Light"
 
-[node name="ruins" parent="." unique_id=1615062780 instance=ExtResource("4_pn7pm")]
+[node name="ruins" parent="." unique_id=1615062780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.756741, 0.119003296, -36.055542)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=654516064]
@@ -202,7 +252,6 @@ use_collision = true
 [node name="oceanfloor" type="CSGBox3D" parent="terrain" unique_id=657734236]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.279251, -0.17953408, -12.071777)
 size = Vector3(307.5, 0.25, 346.75)
-material = ExtResource("1_328ii")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="terrain" unique_id=1124972328]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -5.0404697e-07, -26.990124)
@@ -214,5 +263,5 @@ visible = false
 mesh = SubResource("PlaneMesh_4o5f7")
 surface_material_override/0 = SubResource("ShaderMaterial_8hmpj")
 
-[node name="trees" parent="." unique_id=1857448704 instance=ExtResource("6_8ahk5")]
+[node name="trees" parent="." unique_id=1857448704]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4828243, 1.4656783, -15.778509)

@@ -19,6 +19,12 @@ font_size = 80
 outline_size = 30
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_67lfy"]
+font_size = 32
+font_color = Color(0.5370113, 0.5370113, 0.5370113, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="PlayerCharacter" type="CharacterBody3D" unique_id=1115347998]
 script = ExtResource("1_ccx4r")
 
@@ -51,3 +57,21 @@ grow_vertical = 2
 label_settings = SubResource("LabelSettings_84fvk")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1481336009]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1718526247]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -323.5
+offset_top = -107.0
+offset_right = 323.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "W: Forward   A: Left    S: Backwards   D: Right   Mouse: Look   Shift: Run   ESC: Mouse"
+label_settings = SubResource("LabelSettings_67lfy")
+horizontal_alignment = 1
+vertical_alignment = 2

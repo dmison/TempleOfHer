@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wvqi8h2ca3n7"
+uid="uid://bt2jrxi0d55q3"
 path.s3tc="res://.godot/imported/Rock1_2.png-aaa32d1ef07843aa2369cfb065b084ee.s3tc.ctex"
 path.etc2="res://.godot/imported/Rock1_2.png-aaa32d1ef07843aa2369cfb065b084ee.etc2.ctex"
 metadata={
@@ -10,7 +10,7 @@ metadata={
 "vram_texture": true
 }
 generator_parameters={
-"md5": "229781bb0f468e53979090c8d8e229b9"
+"md5": "65bc37e33dd8e6c9e4d9c1ecd057ef6b"
 }
 
 [deps]

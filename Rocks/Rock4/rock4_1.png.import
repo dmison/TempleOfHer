@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://62clyr5o5cw5"
-path.s3tc="res://.godot/imported/Rock1_0.png-49ff3fdeea820f29053ae16f12d8f586.s3tc.ctex"
-path.etc2="res://.godot/imported/Rock1_0.png-49ff3fdeea820f29053ae16f12d8f586.etc2.ctex"
+uid="uid://dat06n7ay4ax6"
+path.s3tc="res://.godot/imported/rock4_1.png-18aa379b6591ff08598e85b4c74a8519.s3tc.ctex"
+path.etc2="res://.godot/imported/rock4_1.png-18aa379b6591ff08598e85b4c74a8519.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "d36d14309e90af1001ebf414f59a1afd"
+"md5": "f3a8ddbc27ae126cc802e872c7922cb5"
 }
 
 [deps]
 
-source_file="res://Rocks/Rock1/Rock1_0.png"
-dest_files=["res://.godot/imported/Rock1_0.png-49ff3fdeea820f29053ae16f12d8f586.s3tc.ctex", "res://.godot/imported/Rock1_0.png-49ff3fdeea820f29053ae16f12d8f586.etc2.ctex"]
+source_file="res://Rocks/Rock4/rock4_1.png"
+dest_files=["res://.godot/imported/rock4_1.png-18aa379b6591ff08598e85b4c74a8519.s3tc.ctex", "res://.godot/imported/rock4_1.png-18aa379b6591ff08598e85b4c74a8519.etc2.ctex"]
 
 [params]
 
@@ -30,8 +30,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=8
+roughness/src_normal="res://Rocks/Rock4/rock4_2.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

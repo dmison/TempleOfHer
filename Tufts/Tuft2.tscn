@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c62ecc2cb4fwc"]
+
+[ext_resource type="Texture2D" uid="uid://43jiwmg23q08" path="res://Tufts/grass_3_1.png" id="1_vmmdl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bi2u"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_vmmdl")
+backlight = Color(0.62152386, 0.62152386, 0.6215238, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_bpxtp"]
+material = SubResource("StandardMaterial3D_2bi2u")
+
+[node name="Tuft1" type="Node3D" unique_id=1811224044]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=328702327]
+transform = Transform3D(0.05644696, -0.037743036, -0.11351259, 0.010626996, 0.20047808, -0.021370469, 0.11550673, 1.5199184e-09, 0.057438597, -0.031244844, 0.16525441, 0.071115434)
+mesh = SubResource("QuadMesh_bpxtp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=871069359]
+transform = Transform3D(-0.11901935, 0.051006068, -0.037882477, 0.023510557, 0.1945486, 0.030878775, 0.043847986, 0.03413526, -0.119383484, 0.041471273, 0.11269015, 0.05668813)
+mesh = SubResource("QuadMesh_bpxtp")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1739206489]
+transform = Transform3D(-0.1260123, -0.013577615, -0.026233254, -0.0016639292, 0.19726408, -0.03283341, 0.027552348, -0.05018495, -0.12196221, -0.07329005, 0.11269015, -0.05324024)
+mesh = SubResource("QuadMesh_bpxtp")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=2065884675]
+transform = Transform3D(-0.06280956, 0.0499134, 0.10816535, -0.00017843122, 0.19578858, -0.036230896, -0.1126762, -0.02813348, -0.06023768, 0.0641444, 0.11269015, -0.07175875)
+mesh = SubResource("QuadMesh_bpxtp")

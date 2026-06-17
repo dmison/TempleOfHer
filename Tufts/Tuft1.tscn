@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ce5ip6y5pox22"]
+
+[ext_resource type="Texture2D" uid="uid://43jiwmg23q08" path="res://Tufts/grass_3_1.png" id="1_lb4kh"]
+[ext_resource type="Texture2D" uid="uid://6kjoj4nh4xgf" path="res://Tufts/grass_3_2.png" id="2_t42bq"]
+[ext_resource type="Texture2D" uid="uid://gk51gist3j3x" path="res://Tufts/grass_3_3.png" id="3_o8vw0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2bi2u"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_lb4kh")
+backlight = Color(0.62152386, 0.62152386, 0.6215238, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_bpxtp"]
+material = SubResource("StandardMaterial3D_2bi2u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_74gn2"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("2_t42bq")
+
+[sub_resource type="QuadMesh" id="QuadMesh_7echx"]
+material = SubResource("StandardMaterial3D_74gn2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0l362"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("3_o8vw0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ycayn"]
+material = SubResource("StandardMaterial3D_0l362")
+
+[node name="Tuft1" type="Node3D" unique_id=1811224044]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=328702327]
+transform = Transform3D(0.91469175, -7.014286e-16, 0.40415204, 0.084069334, 1.544927, -0.19026881, -0.39531153, 0.32855347, 0.8946836, 0.010840356, 0.85137653, 0.111176625)
+mesh = SubResource("QuadMesh_bpxtp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=451102931]
+transform = Transform3D(-0.2624503, -0.6075064, -0.8978693, -0.06323273, 1.6065518, -0.34953445, 0.9628713, -0.06008463, -0.26768687, -0.35479915, 0.90989035, -0.1269303)
+mesh = SubResource("QuadMesh_7echx")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=355242782]
+transform = Transform3D(0.47834417, 0.3932801, -0.6887472, -0.04322085, 1.9084592, 0.21987215, 0.49063885, -0.21530694, 0.690857, 0.10524291, 1.0298438, -0.17978305)
+mesh = SubResource("QuadMesh_ycayn")

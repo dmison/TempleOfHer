@@ -1,0 +1,11 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://bxp28y1fd57h8"]
+
+[ext_resource type="Texture2D" uid="uid://de2p8s26a5g1g" path="res://Skeletons/Sitting/DefaultMaterial_baseColor.png" id="1_uqpk7"]
+[ext_resource type="Texture2D" uid="uid://cua8twao6yjov" path="res://Skeletons/Sitting/DefaultMaterial_occlusionRoughnessMetallic.png" id="2_7rxte"]
+[ext_resource type="Texture2D" uid="uid://cv6ssx5i68hbo" path="res://Skeletons/Sitting/DefaultMaterial_normal.png" id="3_c05q7"]
+
+[resource]
+albedo_texture = ExtResource("1_uqpk7")
+orm_texture = ExtResource("2_7rxte")
+normal_enabled = true
+normal_texture = ExtResource("3_c05q7")

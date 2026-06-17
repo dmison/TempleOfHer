@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://xvkajlcth3u"]
+
+[ext_resource type="PackedScene" uid="uid://cu4481yiu4v05" path="res://Skeletons/FaceDown/Skeleton_poses_facedown_clothes_complete_LP.fbx" id="1_7m0me"]
+[ext_resource type="Material" uid="uid://djd4xr6cx1h4f" path="res://Skeletons/FaceDown/MAT_Skeleton_facedown_uniform.tres" id="2_ly3y0"]
+[ext_resource type="Material" uid="uid://cf6idli0etmaq" path="res://Skeletons/SkeletonBonesMaterial/MAT_Skeleton_Bones_ORM.tres" id="3_msf25"]
+
+[node name="Skeleton_Facedown" unique_id=1883985263 instance=ExtResource("1_7m0me")]
+
+[node name="Boot1_001" parent="." index="0" unique_id=1072627225]
+material_override = ExtResource("2_ly3y0")
+
+[node name="Boot2_001" parent="." index="1" unique_id=1030217874]
+material_override = ExtResource("2_ly3y0")
+
+[node name="PANTS_LP_001" parent="." index="2" unique_id=740282694]
+material_override = ExtResource("2_ly3y0")
+
+[node name="SHIRT_LP_001" parent="." index="3" unique_id=1326104604]
+material_override = ExtResource("2_ly3y0")
+
+[node name="SKELETON_LP_004" parent="." index="4" unique_id=52514198]
+material_override = ExtResource("3_msf25")

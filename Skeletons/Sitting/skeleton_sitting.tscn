@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b0ab4vy0p3jp3"]
+
+[ext_resource type="PackedScene" uid="uid://bmxx10m558q81" path="res://Skeletons/Sitting/Skeleton_poses_sitting_clothed_LP.fbx" id="1_im3ot"]
+[ext_resource type="Material" uid="uid://bxp28y1fd57h8" path="res://Skeletons/Sitting/MAT_Sitting_clothes.tres" id="2_jl5c2"]
+[ext_resource type="Texture2D" uid="uid://cbcstn4vvhhjk" path="res://Skeletons/SkeletonBonesMaterial/Material_baseColor.png" id="3_18ok3"]
+[ext_resource type="Texture2D" uid="uid://oswg74iyw6yb" path="res://Skeletons/SkeletonBonesMaterial/Material_occlusionRoughnessMetallic.png" id="4_kam2m"]
+[ext_resource type="Texture2D" uid="uid://dub7nwrkw502v" path="res://Skeletons/SkeletonBonesMaterial/Material_normal.png" id="5_5atdq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blg34"]
+resource_name = "Material"
+albedo_texture = ExtResource("3_18ok3")
+roughness_texture = ExtResource("4_kam2m")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("5_5atdq")
+ao_enabled = true
+ao_texture = ExtResource("4_kam2m")
+
+[node name="Skeleton_Sitting" unique_id=938166941 instance=ExtResource("1_im3ot")]
+
+[node name="Boot1" parent="." index="0" unique_id=1424289159]
+transform = Transform3D(1.1812541, -0.8981821, -0.4132285, 0.37286672, -0.1915709, 1.4822688, -0.91567415, -1.2366973, 0.07050628, 0.23179458, -0.038800105, 0.76047206)
+material_override = ExtResource("2_jl5c2")
+
+[node name="Boot2" parent="." index="1" unique_id=1345593326]
+material_override = ExtResource("2_jl5c2")
+
+[node name="PANTS_LP" parent="." index="2" unique_id=1587585609]
+material_override = ExtResource("2_jl5c2")
+
+[node name="SHIRT_LP" parent="." index="3" unique_id=1896988053]
+material_override = ExtResource("2_jl5c2")
+
+[node name="SKELETON_LP_002" parent="." index="4" unique_id=795864917]
+material_override = SubResource("StandardMaterial3D_blg34")

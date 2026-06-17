@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://x3aia5lpjx78"]
-
-[ext_resource type="PackedScene" uid="uid://by8uosst1gjit" path="res://skeletest/Skeleton_lp.fbx" id="1_0xs4h"]
-
-[node name="Skeleton_lp" unique_id=2006230368 instance=ExtResource("1_0xs4h")]

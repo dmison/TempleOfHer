@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://xmwjn2jtjg1g"]
-
-[ext_resource type="PackedScene" uid="uid://bhnqe1r464tdl" path="res://SkeletonSitting/Skeleton_poses_sitting.fbx" id="1_kwifn"]
-[ext_resource type="Material" uid="uid://cn4g1082jrbk6" path="res://skeletest/Material.tres" id="2_dmjfp"]
-
-[node name="Skeleton_poses_sitting" unique_id=1237264345 instance=ExtResource("1_kwifn")]
-
-[node name="SKELETON_LP_002" parent="." index="2" unique_id=1887215296]
-surface_material_override/0 = ExtResource("2_dmjfp")
